@@ -1,9 +1,0 @@
-D:\Analise de Sistemas\6ºperiodo\ws_visual_estudio\Forncedores_NET\Model\bin\Debug\Model.dll
-D:\Analise de Sistemas\6ºperiodo\ws_visual_estudio\Forncedores_NET\Model\bin\Debug\Model.pdb
-D:\Analise de Sistemas\6ºperiodo\ws_visual_estudio\Forncedores_NET\Model\bin\Debug\EntityFramework.dll
-D:\Analise de Sistemas\6ºperiodo\ws_visual_estudio\Forncedores_NET\Model\bin\Debug\EntityFramework.SqlServer.dll
-D:\Analise de Sistemas\6ºperiodo\ws_visual_estudio\Forncedores_NET\Model\bin\Debug\EntityFramework.xml
-D:\Analise de Sistemas\6ºperiodo\ws_visual_estudio\Forncedores_NET\Model\bin\Debug\EntityFramework.SqlServer.xml
-D:\Analise de Sistemas\6ºperiodo\ws_visual_estudio\Forncedores_NET\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
-D:\Analise de Sistemas\6ºperiodo\ws_visual_estudio\Forncedores_NET\Model\obj\Debug\Model.dll
-D:\Analise de Sistemas\6ºperiodo\ws_visual_estudio\Forncedores_NET\Model\obj\Debug\Model.pdb
