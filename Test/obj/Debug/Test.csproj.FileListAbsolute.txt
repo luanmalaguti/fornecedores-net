@@ -1,0 +1,15 @@
+D:\Analise de Sistemas\6ºperiodo\ws_visual_estudio\Forncedores_NET\Test\bin\Debug\Test.dll
+D:\Analise de Sistemas\6ºperiodo\ws_visual_estudio\Forncedores_NET\Test\bin\Debug\Test.pdb
+D:\Analise de Sistemas\6ºperiodo\ws_visual_estudio\Forncedores_NET\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+D:\Analise de Sistemas\6ºperiodo\ws_visual_estudio\Forncedores_NET\Test\obj\Debug\Test.dll
+D:\Analise de Sistemas\6ºperiodo\ws_visual_estudio\Forncedores_NET\Test\obj\Debug\Test.pdb
+D:\Analise de Sistemas\6ºperiodo\ws_visual_estudio\Forncedores_NET\Test\bin\Debug\Context.dll
+D:\Analise de Sistemas\6ºperiodo\ws_visual_estudio\Forncedores_NET\Test\bin\Debug\EntityFramework.dll
+D:\Analise de Sistemas\6ºperiodo\ws_visual_estudio\Forncedores_NET\Test\bin\Debug\Model.dll
+D:\Analise de Sistemas\6ºperiodo\ws_visual_estudio\Forncedores_NET\Test\bin\Debug\nunit.framework.dll
+D:\Analise de Sistemas\6ºperiodo\ws_visual_estudio\Forncedores_NET\Test\bin\Debug\Context.pdb
+D:\Analise de Sistemas\6ºperiodo\ws_visual_estudio\Forncedores_NET\Test\bin\Debug\Model.pdb
+D:\Analise de Sistemas\6ºperiodo\ws_visual_estudio\Forncedores_NET\Test\bin\Debug\EntityFramework.xml
+D:\Analise de Sistemas\6ºperiodo\ws_visual_estudio\Forncedores_NET\Test\bin\Debug\nunit.framework.xml
+D:\Analise de Sistemas\6ºperiodo\ws_visual_estudio\Forncedores_NET\Test\bin\Debug\EntityFramework.SqlServer.dll
+D:\Analise de Sistemas\6ºperiodo\ws_visual_estudio\Forncedores_NET\Test\bin\Debug\EntityFramework.SqlServer.xml
