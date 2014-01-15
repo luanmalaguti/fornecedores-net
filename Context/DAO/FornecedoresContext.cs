@@ -11,13 +11,13 @@ namespace Context.DAO
     {
         
         /// <summary>
-        /// Define-se o nome do banco passando por parametro uma string
+        /// Define-se o nome do contexto passando por parametro uma string
         /// para o construtor da super classe <code>DbContext(String)</code>
         /// 
-        /// <example><code> : base("nomeBanco")</code></example>
+        /// <example><code> : base("contexto")</code></example>
         /// 
         /// </summary>
-        public FornecedoresContext() : base("db_fornecedores")
+        public FornecedoresContext() : base("FornecedoresContext")
         {      
         }
 
