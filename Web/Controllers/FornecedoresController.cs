@@ -7,15 +7,16 @@ using System.Web;
 using System.Web.Mvc;
 using Model;
 using Context.DAO;
+using Model.POCO;
 
 namespace Web.Controllers
 {
-    public class FornecedorController : Controller
+    public class FornecedoresController : Controller
     {
         private FornecedoresContext db = new FornecedoresContext();
 
         //
-        // GET: /Fornecedor/
+        // GET: /Fornecedores/
 
         public ActionResult Index()
         {
@@ -23,7 +24,7 @@ namespace Web.Controllers
         }
 
         //
-        // GET: /Fornecedor/Details/5
+        // GET: /Fornecedores/Details/5
 
         public ActionResult Details(int id = 0)
         {
@@ -36,7 +37,7 @@ namespace Web.Controllers
         }
 
         //
-        // GET: /Fornecedor/Create
+        // GET: /Fornecedores/Create
 
         public ActionResult Create()
         {
@@ -44,23 +45,23 @@ namespace Web.Controllers
         }
 
         //
-        // POST: /Fornecedor/Create
+        // POST: /Fornecedores/Create
 
         [HttpPost]
-        public ActionResult Create(Fornecedor fornecedor)
+        public ActionResult Create(Usuario usuario)
         {
             if (ModelState.IsValid)
             {
-                db.Fornecedor.Add(fornecedor);
+                db.Usuario.Add(usuario);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(fornecedor);
+            return View(usuario);
         }
 
         //
-        // GET: /Fornecedor/Edit/5
+        // GET: /Fornecedores/Edit/5
 
         public ActionResult Edit(int id = 0)
         {
@@ -73,7 +74,7 @@ namespace Web.Controllers
         }
 
         //
-        // POST: /Fornecedor/Edit/5
+        // POST: /Fornecedores/Edit/5
 
         [HttpPost]
         public ActionResult Edit(Fornecedor fornecedor)
@@ -88,7 +89,7 @@ namespace Web.Controllers
         }
 
         //
-        // GET: /Fornecedor/Delete/5
+        // GET: /Fornecedores/Delete/5
 
         public ActionResult Delete(int id = 0)
         {
@@ -101,7 +102,7 @@ namespace Web.Controllers
         }
 
         //
-        // POST: /Fornecedor/Delete/5
+        // POST: /Fornecedores/Delete/5
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)

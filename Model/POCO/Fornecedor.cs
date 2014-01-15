@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Model
 {
     [Table("Fornecedor")]
-    public class Fornecedor
+    public partial class Fornecedor
     {
         public Fornecedor()
         {
@@ -17,8 +17,17 @@ namespace Model
         [Key]
         public int Id { get; set; }
 
-        [Required]
-        public string Nome { get; set; }
+        [Required(ErrorMessage = "Informe o Nome")]
+        public string RazaoSocial { get; set; }
+
+        [Required(ErrorMessage = "Informe o Nome")]
+        public string Cnpj { get; set; }
+
+        [Required(ErrorMessage = "Informe o Telefone")]
+        public string Telefone { get; set; }
+
+        [Required(ErrorMessage = "Informe o Endereco")]
+        public string Endereco { get; set; }
 
         public virtual ICollection<Pedido> Pedidos { get; set; }
 

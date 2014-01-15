@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Context.DAO;
 
 namespace Web
 {
@@ -16,13 +17,15 @@ namespace Web
     {
         protected void Application_Start()
         {
+            FornecedoresContext db = new FornecedoresContext();
+            db.Database.CreateIfNotExists();
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            AuthConfig.RegisterAuth();
+            
         }
     }
 }

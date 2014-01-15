@@ -1,6 +1,8 @@
 ﻿
 using System.Data.Entity;
 using Model;
+using Model.POCO;
+
 namespace Context.DAO
 {
     /// <summary>
@@ -33,6 +35,8 @@ namespace Context.DAO
         /// </code>
         /// 
         /// </example>>
+        public DbSet<Usuario> Usuario { get; set; }
+        
         public DbSet<Fornecedor> Fornecedor { get; set; }
 
         public DbSet<Produto> Produto { get; set; }
