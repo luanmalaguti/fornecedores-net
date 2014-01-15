@@ -1,0 +1,75 @@
+﻿@model Model.POCO.Usuario
+
+@{
+    ViewBag.Title = "Cadastro";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Cadastro</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Username, "Usuário")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Username)
+            @Html.ValidationMessageFor(model => model.Username)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Password, "Senha")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Password)
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Fornecedor.RazaoSocial, "Razão Social")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Fornecedor.RazaoSocial)
+            @Html.ValidationMessageFor(model => model.Fornecedor.RazaoSocial)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Fornecedor.Cnpj)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Fornecedor.Cnpj)
+            @Html.ValidationMessageFor(model => model.Fornecedor.Cnpj)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Fornecedor.Telefone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Fornecedor.Telefone)
+            @Html.ValidationMessageFor(model => model.Fornecedor.Telefone)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Fornecedor.Endereco)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Fornecedor.Endereco)
+            @Html.ValidationMessageFor(model => model.Fornecedor.Endereco)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Voltar", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

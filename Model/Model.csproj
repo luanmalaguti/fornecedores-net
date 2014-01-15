@@ -48,7 +48,9 @@
     <Compile Include="POCO\ItemPedido.cs" />
     <Compile Include="POCO\Pedido.cs" />
     <Compile Include="POCO\Produto.cs" />
+    <Compile Include="POCO\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\TipoUsuario.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
