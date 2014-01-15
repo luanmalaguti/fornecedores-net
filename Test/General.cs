@@ -1,6 +1,5 @@
 ﻿using System;
 using Context.DAO;
-
 using NUnit.Framework;
 using Model;
 using Context;
@@ -16,7 +15,7 @@ namespace Test
         [SetUp]
         public void setUp()
         {
-            db = ConnProvider.getContext("db_fornecedores_test");
+            db = ConnProvider.getContext("db_fornecedores_test_2");
         }
       
         

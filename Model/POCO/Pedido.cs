@@ -1,11 +1,8 @@
 ﻿
-using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace Model
 {
     [Table("Pedido")]
@@ -20,7 +17,7 @@ namespace Model
         public int Id { get; set; }
 
         [Required]
-        public String Descricao { get; set; }
+        public string Descricao { get; set; }
 
         public virtual ICollection<ItemPedido> ItemsPedido { get; set; }
     }
