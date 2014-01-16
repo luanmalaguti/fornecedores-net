@@ -54,7 +54,7 @@ namespace Web.Controllers
             {
                 db.Usuario.Add(usuario);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Acess");
             }
 
             return View(usuario);

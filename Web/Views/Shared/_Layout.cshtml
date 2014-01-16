@@ -18,13 +18,21 @@
                     <section id="login">
                         @Html.Partial("_LoginPartial")
                     </section>
-                    <nav>
-                        <ul id="menu">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        </ul>
-                    </nav>
+                     @if (HttpContext.Current.Session["tipoUsuario"] != null)
+                     {
+                         if (Web.Models.Auth.UserAuthorization.IsAuthorized(Web.Models.Auth.UserAuthorization.Tipo.FORNECEDOR))
+                         {
+                             <nav>
+                                @Html.Partial("_MenuFornecedor")
+                             </nav>
+                         }
+                         else if (Web.Models.Auth.UserAuthorization.IsAuthorized(Web.Models.Auth.UserAuthorization.Tipo.ADMIN))
+                         {
+                             <nav>
+                                @Html.Partial("_MenuAdmin")
+                             </nav>
+                         }
+                     }
                 </div>
             </div>
         </header>
