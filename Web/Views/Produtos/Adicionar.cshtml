@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Model.Produto>
+
+@{
+    ViewBag.Title = "Adicionar";
+}
+
+<h2>Adicionar</h2>
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorUnitario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tamanho)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.unidadeMedida)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValorUnitario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tamanho)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.unidadeMedida)
+        </td>
+        <td>
+            @Html.ActionLink("+ Adicionar", "Adicionar", new { id=item.Id }) 
+        </td>
+    </tr>
+}
+
+</table>
