@@ -8,6 +8,8 @@ using System.Web.Mvc;
 using Model;
 using Context.DAO;
 using Model.POCO;
+using Model.Util;
+using Web.Models.Auth;
 
 namespace Web.Controllers
 {
@@ -16,31 +18,15 @@ namespace Web.Controllers
         private FornecedoresContext db = new FornecedoresContext();
 
         //
-        // GET: /Fornecedores/
-
-        public ActionResult Index()
-        {
-            return View(db.Fornecedor.ToList());
-        }
-
-        //
-        // GET: /Fornecedores/Details/5
-
-        public ActionResult Details(int id = 0)
-        {
-            Fornecedor fornecedor = db.Fornecedor.Find(id);
-            if (fornecedor == null)
-            {
-                return HttpNotFound();
-            }
-            return View(fornecedor);
-        }
-
-        //
         // GET: /Fornecedores/Create
 
         public ActionResult Create()
         {
+            if (HttpContext.User.Identity.IsAuthenticated && Session["userAccount"] != null)
+            {
+                return RedirectToAction("Index", "Home");  
+            }
+
             return View();
         }
 
@@ -52,65 +38,13 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                usuario.Admin = false;
                 db.Usuario.Add(usuario);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Acess");
             }
 
             return View(usuario);
-        }
-
-        //
-        // GET: /Fornecedores/Edit/5
-
-        public ActionResult Edit(int id = 0)
-        {
-            Fornecedor fornecedor = db.Fornecedor.Find(id);
-            if (fornecedor == null)
-            {
-                return HttpNotFound();
-            }
-            return View(fornecedor);
-        }
-
-        //
-        // POST: /Fornecedores/Edit/5
-
-        [HttpPost]
-        public ActionResult Edit(Fornecedor fornecedor)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(fornecedor).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(fornecedor);
-        }
-
-        //
-        // GET: /Fornecedores/Delete/5
-
-        public ActionResult Delete(int id = 0)
-        {
-            Fornecedor fornecedor = db.Fornecedor.Find(id);
-            if (fornecedor == null)
-            {
-                return HttpNotFound();
-            }
-            return View(fornecedor);
-        }
-
-        //
-        // POST: /Fornecedores/Delete/5
-
-        [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Fornecedor fornecedor = db.Fornecedor.Find(id);
-            db.Fornecedor.Remove(fornecedor);
-            db.SaveChanges();
-            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)

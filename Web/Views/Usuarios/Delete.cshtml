@@ -1,0 +1,60 @@
+﻿@model Model.POCO.Usuario
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Remover Fornecedor</h2>
+
+<h3>Ten certeza que deseja remover este fornecedor?</h3>
+<fieldset>
+    <legend>Usuario</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Username)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Username)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Password)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Password)
+    </div>
+    
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Fornecedor.RazaoSocial)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Fornecedor.RazaoSocial)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Fornecedor.Cnpj)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Fornecedor.Cnpj)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Fornecedor.Telefone)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Fornecedor.Telefone)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Fornecedor.Endereco)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Fornecedor.Endereco)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Remover" /> |
+        @Html.ActionLink("Voltar", "Index")
+    </p>
+}

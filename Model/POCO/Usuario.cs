@@ -21,8 +21,9 @@ namespace Model.POCO
         [Required(ErrorMessage = "Informe a Senha")]
         public string Password { get; set; }
 
-        public TipoUsuario TipoUsuario { get; set; }
+        public Boolean Admin { get; set; }
 
-        public Fornecedor Fornecedor { get; set; }
+        public virtual Fornecedor Fornecedor { get; set; }
+
     }
 }

@@ -18,13 +18,21 @@
                     <section id="login">
                         @Html.Partial("_LoginPartial")
                     </section>
-                    <nav>
-                        <ul id="menu">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        </ul>
-                    </nav>
+                     @if (HttpContext.Current.Session["userAccount"] != null )
+                     {
+                         if (Web.Models.Auth.UserAuthorization.IsAdmin())
+                         {
+                             <nav>
+                                @Html.Partial("_MenuAdmin")
+                             </nav>
+                         }
+                         else
+                         {
+                             <nav>
+                                @Html.Partial("_MenuFornecedor")
+                             </nav>
+                         }
+                     }
                 </div>
             </div>
         </header>
@@ -36,7 +44,8 @@
         </div>
         <footer>
             <div class="content-wrapper">
-                <div class="float-left">
+                
+                <div class="float-left" style="margin-left: 42%">
                     <p>&copy; @DateTime.Now.Year - Enjoy Fornecedores </p>
                 </div>
             </div>

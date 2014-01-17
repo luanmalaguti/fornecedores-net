@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using Model;
 using Model.POCO;
 using Context.DAO;
@@ -38,6 +39,7 @@ namespace Web.Controllers
             if (ModelState.IsValid)
             {
                 if (UserAuthentication.Authentication(model))
+                {
                     if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                         && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
                     {
@@ -47,13 +49,27 @@ namespace Web.Controllers
                     {
                         return RedirectToAction("Index", "Home");
                     }
-                 }
-            else
-            {
-                ModelState.AddModelError("failed", "The user name or password provided is incorrect.");
-                return RedirectToAction("Index", "Acess");
+                }
+                else
+                {
+                    ViewBag.StatusMessage = "Username ou Senha informados são incorretos";
+                    return View(model);
+                }
             }
             return View(model);
+        }
+
+        public ActionResult LogOff()
+        {
+            FormsAuthentication.SignOut();
+            Session["tipoUsuario"] = null;
+            Session["userAccount"] = null;
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Unauthorized()
+        {
+            return View();
         }
     }
 }

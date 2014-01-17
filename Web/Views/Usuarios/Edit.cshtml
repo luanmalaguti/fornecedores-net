@@ -1,27 +1,29 @@
 ﻿@model Model.POCO.Usuario
 
 @{
-    ViewBag.Title = "Cadastro";
+    ViewBag.Title = "Edit";
 }
 
-<center><h2>Registre-se como nosso fornecedor!</h2></center>
+<h2>Editar Fornecedor</h2>
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
-<div class="cadastro-fornecedor" style="width: 340px; margin-left: 35%; margin-top: 25px;">
+
     <fieldset>
-        <legend>Cadastro</legend>
+        <legend>Fornecedor</legend>
+
+        @Html.HiddenFor(model => model.Id)
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Username, "Usuário")
+            @Html.LabelFor(model => model.Username)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Username)
             @Html.ValidationMessageFor(model => model.Username)
         </div>
-        
+
         <div class="editor-label">
-            @Html.LabelFor(model => model.Password, "Senha")
+            @Html.LabelFor(model => model.Password)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Password)
@@ -60,12 +62,15 @@
             @Html.ValidationMessageFor(model => model.Fornecedor.Endereco)
         </div>
 
-        <center>
-            <input type="submit" value="Registrar" />
-        </center>
+        <p>
+            <input type="submit" value="Salvar" />
+        </p>
     </fieldset>
-</div>
 }
+
+<div>
+    @Html.ActionLink("Voltar", "Index")
+</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

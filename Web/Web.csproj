@@ -164,17 +164,14 @@
     <Compile Include="Controllers\AcessController.cs" />
     <Compile Include="Controllers\FornecedoresController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201401151650319_addUser.cs" />
-    <Compile Include="Migrations\201401151650319_addUser.Designer.cs">
-      <DependentUpon>201401151650319_addUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Auth\UserAuthentication.cs" />
+    <Compile Include="Models\Auth\UserAuthorization.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -288,12 +285,16 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Fornecedores\Index.cshtml" />
-    <Content Include="Views\Fornecedores\Details.cshtml" />
     <Content Include="Views\Fornecedores\Create.cshtml" />
-    <Content Include="Views\Fornecedores\Edit.cshtml" />
-    <Content Include="Views\Fornecedores\Delete.cshtml" />
     <Content Include="Views\Acess\Index.cshtml" />
+    <Content Include="Views\Shared\_MenuFornecedor.cshtml" />
+    <Content Include="Views\Shared\_MenuAdmin.cshtml" />
+    <Content Include="Views\Usuarios\Index.cshtml" />
+    <Content Include="Views\Usuarios\Details.cshtml" />
+    <Content Include="Views\Usuarios\Create.cshtml" />
+    <Content Include="Views\Usuarios\Edit.cshtml" />
+    <Content Include="Views\Usuarios\Delete.cshtml" />
+    <Content Include="Views\Acess\Unauthorized.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -310,11 +311,6 @@
       <Project>{a5013d1a-7124-4ed9-94af-d0a6b1b1a6b6}</Project>
       <Name>Model</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201401151650319_addUser.resx">
-      <DependentUpon>201401151650319_addUser.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Model.POCO;
 
 namespace Model
 {
@@ -33,5 +34,8 @@ namespace Model
 
         [InverseProperty("Fornecedores")]
         public virtual ICollection<Produto> Produtos { get; set; }
+
+        //public virtual Usuario usuario { get; set; }
+
     }
 }

@@ -17,11 +17,14 @@ namespace Model
         [Key]
         public int Id { get; set; }
         
-        [Required]
+       [Required(ErrorMessage = "Informe a Descrição do Produto")]
         public string Descricao { get; set; }
 
-        [Required]
-        public double Preco { get; set; }
+        public double ValorUnitario { get; set; }
+
+        public int Tamanho { get; set; }
+
+        public string unidadeMedida { get; set; }
 
         [InverseProperty("Produtos")]
         public virtual ICollection<Fornecedor> Fornecedores { get; set; }

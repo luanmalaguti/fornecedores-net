@@ -25,14 +25,17 @@ namespace Web.Models.Auth
 
             if (query.Any())
             {
+                usuario = db.Usuario.FirstOrDefault(u => u.Username == usuario.Username && u.Password == usuario.Password);
+                
                 FormsAuthentication.SetAuthCookie(usuario.Username, true);
-                System.Web.HttpContext.Current.Session["UserAccount"] = usuario;
-                System.Web.HttpContext.Current.Session["tipoUsuario"] = usuario.TipoUsuario;
+                System.Web.HttpContext.Current.Session["userAccount"] = usuario;
+                System.Web.HttpContext.Current.Session["admin"] = usuario.Admin ? usuario : null;
                 
                 return true;
             }
 
             return false;
         }
+
     }
 }

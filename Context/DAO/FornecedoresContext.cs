@@ -44,5 +44,12 @@ namespace Context.DAO
         public DbSet<Pedido> Pedido { get; set; }
 
         public DbSet<ItemPedido> ItemPedido { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+//            modelBuilder.Entity<Usuario>().HasOptional(t => t.Fornecedor).WithRequired(t => t.usuario);
+//            modelBuilder.Entity<Fornecedor>().HasKey(t => t.Id);
+//            base.OnModelCreating(modelBuilder);
+        }
     }
 }
