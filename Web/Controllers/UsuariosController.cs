@@ -75,9 +75,9 @@ namespace Web.Controllers
             Usuario usuario = db.Usuario.Where(u => u.Id == id).Include(f => f.Fornecedor).FirstOrDefault();
             if (usuario == null)
             {
-                //return HttpNotFound();
-                usuario = (Usuario)Session["userAccount"];
-                usuario = db.Usuario.Find(usuario.Id);
+                //se não esta editando um usuario da lista, então é o fornecedor editando a propria conta
+                Usuario userSessao = (Usuario)Session["userAccount"];
+                usuario = db.Usuario.Where(u => u.Id == userSessao.Id).Include(f => f.Fornecedor).FirstOrDefault();
             }
             return View(usuario);
         }

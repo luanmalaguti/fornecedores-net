@@ -23,6 +23,7 @@ namespace Model.POCO
 
         public Boolean Admin { get; set; }
 
-        public Fornecedor Fornecedor { get; set; }
+        public virtual Fornecedor Fornecedor { get; set; }
+
     }
 }

@@ -10,7 +10,7 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>Usuario</legend>
+        <legend>Fornecedor</legend>
 
         @Html.HiddenFor(model => model.Id)
 
@@ -28,6 +28,38 @@
         <div class="editor-field">
             @Html.EditorFor(model => model.Password)
             @Html.ValidationMessageFor(model => model.Password)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Fornecedor.RazaoSocial, "Razão Social")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Fornecedor.RazaoSocial)
+            @Html.ValidationMessageFor(model => model.Fornecedor.RazaoSocial)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Fornecedor.Cnpj)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Fornecedor.Cnpj)
+            @Html.ValidationMessageFor(model => model.Fornecedor.Cnpj)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Fornecedor.Telefone)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Fornecedor.Telefone)
+            @Html.ValidationMessageFor(model => model.Fornecedor.Telefone)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Fornecedor.Endereco)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Fornecedor.Endereco)
+            @Html.ValidationMessageFor(model => model.Fornecedor.Endereco)
         </div>
 
         <p>
