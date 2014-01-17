@@ -75,7 +75,9 @@ namespace Web.Controllers
             Usuario usuario = db.Usuario.Where(u => u.Id == id).Include(f => f.Fornecedor).FirstOrDefault();
             if (usuario == null)
             {
-                return HttpNotFound();
+                //return HttpNotFound();
+                usuario = (Usuario)Session["userAccount"];
+                usuario = db.Usuario.Find(usuario.Id);
             }
             return View(usuario);
         }
@@ -90,6 +92,10 @@ namespace Web.Controllers
             {
                 db.Entry(usuario).State = EntityState.Modified;
                 db.SaveChanges();
+
+                if (!UserAuthorization.IsAdmin())
+                    return RedirectToAction("Index", "Home");
+
                 return RedirectToAction("Index");
             }
             return View(usuario);

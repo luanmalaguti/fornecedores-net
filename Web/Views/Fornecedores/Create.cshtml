@@ -4,11 +4,11 @@
     ViewBag.Title = "Cadastro";
 }
 
-<h2>Create</h2>
+<center><h2>Registre-se como nosso fornecedor!</h2></center>
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
-
+<div class="cadastro-fornecedor" style="width: 340px; margin-left: 35%; margin-top: 25px;">
     <fieldset>
         <legend>Cadastro</legend>
 
@@ -60,10 +60,11 @@
             @Html.ValidationMessageFor(model => model.Fornecedor.Endereco)
         </div>
 
-        <p>
+        <center>
             <input type="submit" value="Registrar" />
-        </p>
+        </center>
     </fieldset>
+</div>
 }
 
 @section Scripts {

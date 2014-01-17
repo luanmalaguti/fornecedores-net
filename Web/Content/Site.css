@@ -330,7 +330,7 @@ aside {
 
 /* login page */
 #loginForm {
-    border-right: solid 2px #c8c8c8;
+    /*border-right: solid 2px #c8c8c8;*/
     float: left;
     width: 55%;
 }
@@ -432,6 +432,7 @@ input, textarea {
     margin: 5px 0 6px 0;
     padding: 5px;
     width: 300px;
+    border-radius: 5px;
 }
 
 textarea {
@@ -753,4 +754,8 @@ tr.pager td {
         footer p {
             margin: 0;
         }
+    
+    .cadastro-fornecedor {
+        border: solid 1px black;
+    }
 }
