@@ -39,6 +39,7 @@ namespace Web.Controllers
             if (ModelState.IsValid)
             {
                 if (UserAuthentication.Authentication(model))
+                {
                     if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                         && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
                     {
@@ -46,13 +47,14 @@ namespace Web.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Index", "Acess");
+                        return RedirectToAction("Index", "Home");
                     }
-                 }
-            else
-            {
-                ModelState.AddModelError("failed", "The user name or password provided is incorrect.");
-                return RedirectToAction("Index", "Acess");
+                }
+                else
+                {
+                    ViewBag.StatusMessage = "Username ou Senha informados são incorretos";
+                    return View(model);
+                }
             }
             return View(model);
         }
