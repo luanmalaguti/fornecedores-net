@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using Model;
 using Model.POCO;
 using Context.DAO;
@@ -54,6 +55,19 @@ namespace Web.Controllers
                 return RedirectToAction("Index", "Acess");
             }
             return View(model);
+        }
+
+        public ActionResult LogOff()
+        {
+            FormsAuthentication.SignOut();
+            Session["tipoUsuario"] = null;
+            Session["userAccount"] = null;
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Unauthorized()
+        {
+            return View();
         }
     }
 }

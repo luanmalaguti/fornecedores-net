@@ -8,6 +8,8 @@ using System.Web.Mvc;
 using Model;
 using Context.DAO;
 using Model.POCO;
+using Model.Util;
+using Web.Models.Auth;
 
 namespace Web.Controllers
 {
@@ -52,6 +54,7 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                usuario.Admin = false;
                 db.Usuario.Add(usuario);
                 db.SaveChanges();
                 return RedirectToAction("Index", "Acess");

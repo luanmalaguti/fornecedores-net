@@ -18,18 +18,18 @@
                     <section id="login">
                         @Html.Partial("_LoginPartial")
                     </section>
-                     @if (HttpContext.Current.Session["tipoUsuario"] != null)
+                     @if (HttpContext.Current.Session["userAccount"] != null )
                      {
-                         if (Web.Models.Auth.UserAuthorization.IsAuthorized(Web.Models.Auth.UserAuthorization.Tipo.FORNECEDOR))
-                         {
-                             <nav>
-                                @Html.Partial("_MenuFornecedor")
-                             </nav>
-                         }
-                         else if (Web.Models.Auth.UserAuthorization.IsAuthorized(Web.Models.Auth.UserAuthorization.Tipo.ADMIN))
+                         if (Web.Models.Auth.UserAuthorization.IsAdmin())
                          {
                              <nav>
                                 @Html.Partial("_MenuAdmin")
+                             </nav>
+                         }
+                         else
+                         {
+                             <nav>
+                                @Html.Partial("_MenuFornecedor")
                              </nav>
                          }
                      }
