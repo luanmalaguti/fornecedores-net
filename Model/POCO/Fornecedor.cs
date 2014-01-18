@@ -11,7 +11,7 @@ namespace Model
     {
         public Fornecedor()
         {
-            this.Produtos = new List<Produto>();
+            this.FornecedorProduto = new List<FornecedorProduto>();
             this.Pedidos = new List<Pedido>();
         }
 
@@ -32,8 +32,7 @@ namespace Model
 
         public virtual ICollection<Pedido> Pedidos { get; set; }
 
-        [InverseProperty("Fornecedores")]
-        public virtual ICollection<Produto> Produtos { get; set; }
+        public virtual ICollection<FornecedorProduto> FornecedorProduto { get; set; }
 
         //public virtual Usuario usuario { get; set; }
 

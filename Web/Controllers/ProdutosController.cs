@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
@@ -16,7 +18,8 @@ namespace Web.Controllers
         private FornecedoresContext db = new FornecedoresContext();
         private Usuario userSessao;
         private Fornecedor fornecedor;
-        private ICollection<Produto> produtos;
+        private ICollection<FornecedorProduto> fornecedorProdutos;
+        private ICollection<Produto> produtos = new Collection<Produto>();
         //
         // GET: /Produtos/
 
@@ -84,7 +87,12 @@ namespace Web.Controllers
         {
             loadFornecedor();
             Produto produto = db.Produto.Find(id);
-            fornecedor.Produtos.Remove(produto);
+
+            FornecedorProduto fp = 
+                db.FornecedorProdutos.Where(f => f.FornecedorID == fornecedor.Id && f.ProdutoID == produto.Id).FirstOrDefault();
+
+            fornecedor.FornecedorProduto.Remove(fp);
+
             db.Entry(fornecedor).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index");
@@ -92,16 +100,50 @@ namespace Web.Controllers
 
         public ActionResult Adicionar()
         {
-            return View(db.Produto.ToList());
+            loadFornecedor();
+            produtos = db.Produto.ToList();
+            //remove os produtos que o usuario já tem adicionado
+            foreach (var fp in fornecedorProdutos)
+            {
+                if (fornecedor.Id == fp.FornecedorID)
+                {
+                    produtos.Remove(db.Produto.Find(fp.ProdutoID));    
+                }
+            }
+            return View(produtos.ToList());
         }
 
         public ActionResult Add(int id=0)
         {
-            Produto produto = db.Produto.Find(id);
             loadFornecedor();
-            fornecedor.Produtos.Add(produto);
+            
+            FornecedorProduto fornecedorProduto = new FornecedorProduto();
+            fornecedorProduto.Fornecedor = fornecedor;
+            fornecedorProduto.Produto = db.Produto.Find(id);
+            fornecedorProduto.ValorUnitario = 3;
+
+            fornecedor.FornecedorProduto.Add(fornecedorProduto);
+
             db.Entry(fornecedor).State = EntityState.Modified;
+            db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public void loadProdutos()
+        {
+            loadFornecedor();
+            
+            foreach (var fp in fornecedorProdutos)
+            {
+                produtos.Add(db.Produto.Find(fp.ProdutoID));    
+            }
+        }
+
+        public void loadFornecedor()
+        {
+            userSessao = (Usuario)Session["userAccount"];
+            fornecedor = db.Fornecedor.Where(f => f.Id == userSessao.Id).Include(f => f.FornecedorProduto).FirstOrDefault();
+            fornecedorProdutos = fornecedor.FornecedorProduto;
         }
 
         protected override void Dispose(bool disposing)
@@ -110,16 +152,5 @@ namespace Web.Controllers
             base.Dispose(disposing);
         }
 
-        public void loadProdutos()
-        {
-            loadFornecedor();
-            produtos = fornecedor.Produtos;   
-        }
-
-        public void loadFornecedor()
-        {
-            userSessao = (Usuario)Session["userAccount"];
-            fornecedor = db.Fornecedor.Where(f => f.Id == userSessao.Id).Include(p => p.Produtos).FirstOrDefault();
-        }
     }
 }

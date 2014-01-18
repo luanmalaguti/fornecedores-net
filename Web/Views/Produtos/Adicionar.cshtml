@@ -12,13 +12,10 @@
             @Html.DisplayNameFor(model => model.Descricao)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ValorUnitario)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Tamanho)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.unidadeMedida)
+            @Html.DisplayNameFor(model => model.UnidadeMedida)
         </th>
         <th></th>
     </tr>
@@ -28,14 +25,12 @@
         <td>
             @Html.DisplayFor(modelItem => item.Descricao)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ValorUnitario)
-        </td>
+      
         <td>
             @Html.DisplayFor(modelItem => item.Tamanho)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.unidadeMedida)
+            @Html.DisplayFor(modelItem => item.UnidadeMedida)
         </td>
         <td>
             @Html.ActionLink("+ Adicionar", "Add", new { id=item.Id }) 

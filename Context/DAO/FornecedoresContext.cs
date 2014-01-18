@@ -45,6 +45,8 @@ namespace Context.DAO
 
         public DbSet<ItemPedido> ItemPedido { get; set; }
 
+        public DbSet<FornecedorProduto> FornecedorProdutos { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 //            modelBuilder.Entity<Usuario>().HasOptional(t => t.Fornecedor).WithRequired(t => t.usuario);
