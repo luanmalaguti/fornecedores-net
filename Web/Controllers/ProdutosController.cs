@@ -95,10 +95,14 @@ namespace Web.Controllers
             return View(db.Produto.ToList());
         }
 
-//        public ActionResult Adicionar(int id=0)
-//        {
-//            return View();
-//        }
+        public ActionResult Add(int id=0)
+        {
+            Produto produto = db.Produto.Find(id);
+            loadFornecedor();
+            fornecedor.Produtos.Add(produto);
+            db.Entry(fornecedor).State = EntityState.Modified;
+            return RedirectToAction("Index");
+        }
 
         protected override void Dispose(bool disposing)
         {
