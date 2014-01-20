@@ -4,21 +4,20 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Forncecedores Registrados</h2>
-
 <p>
-    @Html.ActionLink("Registrar Novo", "Create")
+    <button class="btn btn-default">@Html.ActionLink("Registrar Novo", "Create")</button>
 </p>
-<table>
+<h3>Forncecedores Registrados</h3>
+<table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Username)
+            @Html.Label("Username")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Password)
+            @Html.Label("Password")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Fornecedor.RazaoSocial)
+             @Html.Label("Razão Social")
         </th>
         <th></th>
     </tr>
