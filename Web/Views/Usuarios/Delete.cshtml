@@ -4,53 +4,53 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Remover Fornecedor</h2>
-
-<h3>Ten certeza que deseja remover este fornecedor?</h3>
+<h3>Tem certeza que deseja remover este fornecedor?</h3>
+<br/>
 <fieldset>
     <legend>Usuario</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Username)
+        @Html.Label("Username")
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Username)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Password)
+        @Html.Label("Password")
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Password)
     </div>
     
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Fornecedor.RazaoSocial)
+        @Html.Label("Razão Social")
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Fornecedor.RazaoSocial)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Fornecedor.Cnpj)
+        @Html.Label("Cnpj")
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Fornecedor.Cnpj)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Fornecedor.Telefone)
+        @Html.Label("Telefone")
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Fornecedor.Telefone)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Fornecedor.Endereco)
+        @Html.Label("Endereço")
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Fornecedor.Endereco)
     </div>
+    <br/>
 </fieldset>
 @using (Html.BeginForm()) {
     <p>

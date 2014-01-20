@@ -6,36 +6,39 @@
 
 <h2>Adicionar</h2>
 
-<table>
+<table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Descricao)
+       <th>
+            @Html.DisplayName("Descrição")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Tamanho)
+            @Html.DisplayName("Tamanho")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.UnidadeMedida)
+           @Html.DisplayName("Unidade de Medida")
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descricao)
-        </td>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
       
-        <td>
-            @Html.DisplayFor(modelItem => item.Tamanho)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UnidadeMedida)
-        </td>
-        <td>
-            @Html.ActionLink("+ Adicionar", "Add", new { id=item.Id }) 
-        </td>
-    </tr>
-}
+            <td>
+                @Html.DisplayFor(modelItem => item.Tamanho)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnidadeMedida)
+            </td>
+            <td>
+                <button class="btn">
+                    @Html.ActionLink("+ Adicionar", "Add", new { id=item.Id }) 
+                </button>
+            </td>
+        </tr>
+    }
 
 </table>
+@Html.ActionLink("Voltar", "Index")

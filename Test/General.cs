@@ -20,7 +20,7 @@ namespace Test
       
         
         [Test]
-        public void TestMethod1()
+        public void save()
         {
             Fornecedor f = new Fornecedor()
                 {

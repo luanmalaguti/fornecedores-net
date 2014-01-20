@@ -4,8 +4,8 @@
     ViewBag.Title = "Registrar";
 }
 
-<h2>Registar Fornecedor</h2>
-
+<h3>Registar Fornecedor</h3>
+<br/>
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
 
@@ -28,7 +28,7 @@
             @Html.ValidationMessageFor(model => model.Password)
         </div>
         
-         <div class="editor-label">
+        <div class="editor-label">
             @Html.LabelFor(model => model.Fornecedor.RazaoSocial, "Razão Social")
         </div>
         <div class="editor-field">
@@ -59,16 +59,13 @@
             @Html.EditorFor(model => model.Fornecedor.Endereco)
             @Html.ValidationMessageFor(model => model.Fornecedor.Endereco)
         </div>
-
+        <br/>
         <p>
-            <input type="submit" value="Registrar" />
+            <input type="submit" value="Registrar" /> | @Html.ActionLink("Voltar", "Index")
         </p>
     </fieldset>
+    
 }
-
-<div>
-    @Html.ActionLink("Voltar", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
