@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="POCO\Fornecedor.cs" />
+    <Compile Include="POCO\FornecedorProduto.cs" />
     <Compile Include="POCO\ItemPedido.cs" />
     <Compile Include="POCO\Pedido.cs" />
     <Compile Include="POCO\Produto.cs" />

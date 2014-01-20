@@ -1,43 +1,36 @@
 ﻿@model Model.Produto
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalhes";
 }
 
-<h2>Details</h2>
-
+<h3>Detalhes do Produto</h3>
+<br/>
 <fieldset>
     <legend>Produto</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Descricao)
+         @Html.Label("Descrição")
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Descricao)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.ValorUnitario)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.ValorUnitario)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Tamanho)
+        @Html.Label("Tamanho")
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Tamanho)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.unidadeMedida)
+         @Html.Label("Unidade de Medida")
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.unidadeMedida)
+        @Html.DisplayFor(model => model.UnidadeMedida)
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    <br/>
+    @Html.ActionLink("Voltar", "Index")
 </p>

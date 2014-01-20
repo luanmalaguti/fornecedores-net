@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Model.POCO;
 
 namespace Model
 {
@@ -10,7 +11,7 @@ namespace Model
     {
         public Produto()
         {
-            this.Fornecedores = new List<Fornecedor>();
+            this.FornecedorProduto = new List<FornecedorProduto>();
             this.ItemsPedido = new List<ItemPedido>();
         }
 
@@ -20,14 +21,11 @@ namespace Model
        [Required(ErrorMessage = "Informe a Descrição do Produto")]
         public string Descricao { get; set; }
 
-        public double ValorUnitario { get; set; }
-
         public int Tamanho { get; set; }
 
-        public string unidadeMedida { get; set; }
+        public string UnidadeMedida { get; set; }
 
-        [InverseProperty("Produtos")]
-        public virtual ICollection<Fornecedor> Fornecedores { get; set; }
+        public virtual ICollection<FornecedorProduto> FornecedorProduto { get; set; }
 
         public virtual ICollection<ItemPedido> ItemsPedido { get; set; }
     }

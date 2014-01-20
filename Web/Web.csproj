@@ -298,7 +298,6 @@
     <Content Include="Views\Acess\Unauthorized.cshtml" />
     <Content Include="Views\Produtos\Index.cshtml" />
     <Content Include="Views\Produtos\Details.cshtml" />
-    <Content Include="Views\Produtos\Create.cshtml" />
     <Content Include="Views\Produtos\Delete.cshtml" />
     <Content Include="Views\Produtos\Adicionar.cshtml" />
   </ItemGroup>

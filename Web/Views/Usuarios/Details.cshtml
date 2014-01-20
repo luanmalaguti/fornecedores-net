@@ -4,54 +4,55 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Visualizar Fornecedor</h2>
-
+<h3>Detalhes do Fornecedor</h3>
+<br/>
 <fieldset>
     <legend>Usuario</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Username)
+        @Html.Label("Username")
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Username)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Password)
+        @Html.Label("Password")
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Password)
     </div>
     
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Fornecedor.RazaoSocial)
+        @Html.Label("Razão Social")
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Fornecedor.RazaoSocial)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Fornecedor.Cnpj)
+        @Html.Label("Cnpj")
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Fornecedor.Cnpj)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Fornecedor.Telefone)
+        @Html.Label("Telefone")
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Fornecedor.Telefone)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Fornecedor.Endereco)
+        @Html.Label("Endereço")
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Fornecedor.Endereco)
     </div>
 </fieldset>
+<br/>
 <p>
-    @Html.ActionLink("Editar", "Edit", new { id=Model.Id }) |
+    <button class="btn">@Html.ActionLink("Editar", "Edit", new { id=Model.Id })</button> |
     @Html.ActionLink("Voltar", "Index")
 </p>

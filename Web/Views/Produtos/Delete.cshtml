@@ -4,43 +4,35 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
+<h3>Tem certeza que deseja remover este produto?</h3><br/>
 <fieldset>
     <legend>Produto</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Descricao)
+         @Html.LabelFor(model => model.Descricao, "Descrição")
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Descricao)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.ValorUnitario)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.ValorUnitario)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Tamanho)
+         @Html.LabelFor(model => model.Tamanho)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Tamanho)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.unidadeMedida)
+         @Html.LabelFor(model => model.UnidadeMedida, "Descrição")
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.unidadeMedida)
+        @Html.DisplayFor(model => model.UnidadeMedida)
     </div>
 </fieldset>
 @using (Html.BeginForm()) {
+    <br/>
     <p>
-        <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
+        <input type="submit" value="Remover" /> |
+        @Html.ActionLink("Voltar", "Index")
     </p>
 }
