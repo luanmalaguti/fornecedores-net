@@ -7,40 +7,49 @@
 
 
 <p><button class="btn btn-default">
-    @Html.ActionLink("Buscar Novo", "Adicionar")
-    </button>
+       @Html.ActionLink("Buscar Novo", "Adicionar")
+   </button>
 </p>
-<table class="table">
-    <h3>Produtos Adicionados</h3>
-    <tr>
-        <th>
-            @Html.DisplayName("Descrição")
-        </th>
-        <th>
-            @Html.DisplayName("Tamanho")
-        </th>
-        <th>
-           @Html.DisplayName("Unidade de Medida")
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descricao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tamanho)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UnidadeMedida)
-        </td>
-        <td>
-            @Html.ActionLink("Detalhes", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Remover", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+@if (!Model.Any())
+{
+    <br/>
+    <h3><span class="label label-info">Nenhum Produto Adicionado!</span></h3>
 }
+else
+{
+    <table class="table">
+        <h3>Produtos Adicionados</h3>
+        <tr>
+            <th>
+                @Html.DisplayName("Descrição")
+            </th>
+            <th>
+                @Html.DisplayName("Tamanho")
+            </th>
+            <th>
+                @Html.DisplayName("Unidade de Medida")
+            </th>
+            <th></th>
+        </tr>
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tamanho)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnidadeMedida)
+                </td>
+                <td>
+                    @Html.ActionLink("Detalhes", "Details", new {id = item.Id}) |
+                    @Html.ActionLink("Remover", "Delete", new {id = item.Id})
+                </td>
+            </tr>
+        }
+
+    </table>
+}

@@ -4,41 +4,50 @@
     ViewBag.Title = "Adicionar";
 }
 
-<h2>Adicionar</h2>
-
-<table class="table">
-    <tr>
-       <th>
-            @Html.DisplayName("Descrição")
-        </th>
-        <th>
-            @Html.DisplayName("Tamanho")
-        </th>
-        <th>
-           @Html.DisplayName("Unidade de Medida")
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model) {
+@if (!Model.Any())
+{
+    <br/>
+    <h3><span class="label label-info">Nenhum Produto Disponivel!</span></h3>
+}
+else
+{
+    <h3>Produtos Disponiveis</h3>
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
-            </td>
-      
-            <td>
-                @Html.DisplayFor(modelItem => item.Tamanho)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UnidadeMedida)
-            </td>
-            <td>
-                <button class="btn">
-                    @Html.ActionLink("+ Adicionar", "Add", new { id=item.Id }) 
-                </button>
-            </td>
+            <th>
+                @Html.DisplayName("Descrição")
+            </th>
+            <th>
+                @Html.DisplayName("Tamanho")
+            </th>
+            <th>
+                @Html.DisplayName("Unidade de Medida")
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+      
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tamanho)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnidadeMedida)
+                </td>
+                <td>
+                    <button class="btn">
+                        @Html.ActionLink("+ Adicionar", "Add", new {id = item.Id}) 
+                    </button>
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+<br/>
 @Html.ActionLink("Voltar", "Index")

@@ -17,8 +17,7 @@ namespace Context.DAO
         }
        
         /// <summary>
-        /// Alternativa para obter o contexto do banco padrão da aplicação
-        /// Como nenhum path é informado, obtem-se a conexão do banco "db_fornecedores"
+        /// Acesso para o contexto de conexão da aplicação
         /// </summary>
         /// <returns>Contexto da conexão</returns>
         public static FornecedoresContext getContext()
@@ -26,21 +25,6 @@ namespace Context.DAO
             if (db == null)
             {
                 new ConnProvider(null);
-            }
-
-            return db;
-        }
-
-        /// <summary>
-        /// Sobrecarga do método <code>getContext()</code>
-        /// Alternativa para obter o contexto de um banco diferente do padrão
-        /// </summary>
-        /// <returns>Contexto da conexão</returns>
-        public static FornecedoresContext getContext(string path)
-        {
-            if (db == null)
-            {
-                new ConnProvider(path);
             }
 
             return db;
