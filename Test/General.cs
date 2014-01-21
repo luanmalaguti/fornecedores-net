@@ -1,5 +1,6 @@
 ﻿using System;
 using Context.DAO;
+using Model.POCO;
 using NUnit.Framework;
 using Model;
 using Context;
@@ -15,22 +16,21 @@ namespace Test
         [SetUp]
         public void setUp()
         {
-            db = ConnProvider.getContext("db_fornecedores_test_2");
+            db = ConnProvider.getContext();
         }
       
         
         [Test]
         public void save()
         {
-            Fornecedor f = new Fornecedor()
-                {
-                    Nome = "Jerusalem",
-                };
+            Usuario u = new Usuario();
+            u.Username = "lol";
+            u.Password = "lol";
             
-            f = db.Fornecedor.Add(f);
+            u = db.Usuario.Add(u);
             db.SaveChanges();
 
-            Assert.NotNull(f.Id);
+            Assert.NotNull(u.Id);
         }
     }
 }
