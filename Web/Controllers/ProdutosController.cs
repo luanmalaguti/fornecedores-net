@@ -24,9 +24,14 @@ namespace Web.Controllers
         // GET: /Produtos/
 
         public ActionResult Index()
-        {     
-            loadProdutos();
-            return View(produtos.ToList());
+        {
+            if (HttpContext.User.Identity.IsAuthenticated && Session["userAccount"] != null)
+            {
+                loadProdutos();
+                return View(produtos.ToList());
+            }
+
+            return RedirectToAction("Unauthorized", "Acess");
         }
 
         //
@@ -39,30 +44,6 @@ namespace Web.Controllers
             {
                 return HttpNotFound();
             }
-            return View(produto);
-        }
-
-        //
-        // GET: /Produtos/Create
-
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        //
-        // POST: /Produtos/Create
-
-        [HttpPost]
-        public ActionResult Create(Produto produto)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Produto.Add(produto);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
             return View(produto);
         }
 

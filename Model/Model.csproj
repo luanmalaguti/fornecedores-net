@@ -51,6 +51,7 @@
     <Compile Include="POCO\Produto.cs" />
     <Compile Include="POCO\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\StatusPedido.cs" />
     <Compile Include="Util\TipoUsuario.cs" />
   </ItemGroup>
   <ItemGroup>

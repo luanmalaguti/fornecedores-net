@@ -4,14 +4,13 @@
     ViewBag.Title = "Edit";
 }
 
-<h3>Editar Fornecedor</h3>
-<br/>
+
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
-
+<div class="cadastro-fornecedor" style="width: 340px; margin-left: 35%; margin-top: 25px;">
     <fieldset>
         <legend>Fornecedor</legend>
-
+        <h3>Editar Dados</h3>
         @Html.HiddenFor(model => model.Id)
 
         <div class="editor-label">
@@ -66,6 +65,7 @@
             <input type="submit" value="Salvar" /> |  @Html.ActionLink("Voltar", "Index")
         </p>
     </fieldset>
+</div>
 }
 
 
