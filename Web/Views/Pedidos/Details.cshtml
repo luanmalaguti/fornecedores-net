@@ -1,22 +1,73 @@
-﻿@model Model.Pedido
+﻿@using Model.Util
+@model Model.Pedido
 
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
-
+<h3><span class="label label-default">Detalhes do pedido</span></h3>
+<br/>
 <fieldset>
     <legend>Pedido</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Descricao)
-    </div>
-    <div class="display-field">
+        @Html.Label("Decrição: ")
         @Html.DisplayFor(model => model.Descricao)
     </div>
+    <div class="display-field">
+        @Html.Label("Status: "):
+        @Html.DisplayFor(model => model.Status)
+    </div>
+    <div class="display-field">
+        @Html.Label("Prazo: ")
+        @Html.DisplayFor(model => model.Prazo)
+    </div>
+    
+    @if(Model.Status == StatusPedido.ENTREGUE)
+    {
+        <div class="display-field">
+            @Html.Label("Entrega: ")
+            @Html.DisplayFor(model => model.Entrega)
+        </div>
+    }
+    
+    <h3><span class="label label-default">Produtos</span></h3>
+<table class="table">
+    <tr>
+        <th>
+            @Html.Label("Descrição")
+        </th>
+        <th>
+            @Html.Label("Tamanho")
+        </th>
+        <th>
+            @Html.Label("Unid. Medida")
+        </th>
+        <th>
+             @Html.Label("Quantidade")
+        </th>
+    </tr>
+
+@foreach (var item in Model.ItemsPedido) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Produto.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Produto.Tamanho)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Produto.UnidadeMedida)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.quantidade)
+        </td>
+    </tr>
+}
+
+</table>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id })
+    @Html.ActionLink("Voltar", "Index")
 </p>

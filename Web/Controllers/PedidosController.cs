@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
@@ -37,6 +38,9 @@ namespace Web.Controllers
             {
                 return HttpNotFound();
             }
+
+            pedido = LoadProdutos(pedido);
+            
             return View(pedido);
         }
 
@@ -72,6 +76,23 @@ namespace Web.Controllers
         {
             db.Dispose();
             base.Dispose(disposing);
+        }
+
+        public Pedido LoadProdutos(Pedido pedido)
+        {
+            ICollection<ItemPedido> Load = new Collection<ItemPedido>(); 
+            
+            foreach (var p in pedido.ItemsPedido)
+            {
+                ItemPedido itemPedido = new ItemPedido();
+                itemPedido = p;
+                itemPedido.Produto = db.Produto.Find(p.ProdutoID);
+                Load.Add(itemPedido);
+            }
+            
+            pedido.ItemsPedido = Load;
+
+            return pedido;
         }
     }
 }
