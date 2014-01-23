@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Model;
 using Context.DAO;
+using Model.Util;
 
 namespace Web.Controllers
 {
@@ -47,29 +48,25 @@ namespace Web.Controllers
         //
         // GET: /Pedidos/Edit/5
 
-        public ActionResult Edit(int id = 0)
+        public ActionResult Edit(StatusPedido status = 0, int id = 0)
         {
+            
+            if (status == 0)
+            {
+                return HttpNotFound();
+            }
+
             Pedido pedido = db.Pedido.Find(id);
             if (pedido == null)
             {
                 return HttpNotFound();
             }
-            return View(pedido);
-        }
 
-        //
-        // POST: /Pedidos/Edit/5
+            pedido.Status = status;
+            db.Entry(pedido).State = EntityState.Modified;
+            db.SaveChanges();
 
-        [HttpPost]
-        public ActionResult Edit(Pedido pedido)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(pedido).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(pedido);
+            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)

@@ -32,42 +32,47 @@
     }
     
     <h3><span class="label label-default">Produtos</span></h3>
-<table class="table">
-    <tr>
-        <th>
-            @Html.Label("Descrição")
-        </th>
-        <th>
-            @Html.Label("Tamanho")
-        </th>
-        <th>
-            @Html.Label("Unid. Medida")
-        </th>
-        <th>
-             @Html.Label("Quantidade")
-        </th>
-    </tr>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.Label("Descrição")
+            </th>
+            <th>
+                @Html.Label("Tamanho")
+            </th>
+            <th>
+                @Html.Label("Unid. Medida")
+            </th>
+            <th>
+                @Html.Label("Quantidade")
+            </th>
+        </tr>
 
-@foreach (var item in Model.ItemsPedido) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Produto.Descricao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Produto.Tamanho)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Produto.UnidadeMedida)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.quantidade)
-        </td>
-    </tr>
-}
+        @foreach (var item in Model.ItemsPedido) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Produto.Descricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Produto.Tamanho)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Produto.UnidadeMedida)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.quantidade)
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
 </fieldset>
+@if (Model.Status == StatusPedido.AGUARDANDO)
+{
+  <li class="btn btn-success"> @Html.ActionLink("Aceitar", "Edit", new {status = StatusPedido.ACEITO,id = Model.Id})</li> 
+   <li class="btn btn-danger">@Html.ActionLink("Recusar", "Edit", new {status = StatusPedido.REJEITADO,id = Model.Id})</li>
+}
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.Id })
+    <br/>
     @Html.ActionLink("Voltar", "Index")
 </p>
