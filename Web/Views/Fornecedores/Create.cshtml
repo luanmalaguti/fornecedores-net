@@ -4,7 +4,11 @@
     ViewBag.Title = "Cadastro";
 }
 
-<center><h2>Registre-se como nosso fornecedor!</h2></center>
+<center>
+    <h2>
+        <span class="label label-default">Registre-se como nosso fornecedor!</span>
+     </h2>
+</center>
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
@@ -59,7 +63,7 @@
             @Html.EditorFor(model => model.Fornecedor.Endereco)
             @Html.ValidationMessageFor(model => model.Fornecedor.Endereco)
         </div>
-
+        <br/>
         <center>
             <input type="submit" value="Registrar" />
         </center>

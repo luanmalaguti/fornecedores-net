@@ -18,7 +18,7 @@
 else
 {
     <table class="table">
-        <h3>Produtos Adicionados</h3>
+        <h3> <span class="label label-default">Produtos Adicionados</span></h3>
         <tr>
             <th>
                 @Html.DisplayName("Descrição")
@@ -44,6 +44,7 @@ else
                 <td>
                     @Html.DisplayFor(modelItem => item.UnidadeMedida)
                 </td>
+          
                 <td>
                     @Html.ActionLink("Detalhes", "Details", new {id = item.Id}) |
                     @Html.ActionLink("Remover", "Delete", new {id = item.Id})

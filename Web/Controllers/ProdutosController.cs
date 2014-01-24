@@ -20,13 +20,19 @@ namespace Web.Controllers
         private Fornecedor fornecedor;
         private ICollection<FornecedorProduto> fornecedorProdutos;
         private ICollection<Produto> produtos = new Collection<Produto>();
+        private static int produtoSelecionado;
         //
         // GET: /Produtos/
 
         public ActionResult Index()
-        {     
-            loadProdutos();
-            return View(produtos.ToList());
+        {
+            if (HttpContext.User.Identity.IsAuthenticated && Session["userAccount"] != null)
+            {
+                loadProdutos();
+                return View(produtos.ToList());
+            }
+
+            return RedirectToAction("Unauthorized", "Acess");
         }
 
         //
@@ -39,30 +45,6 @@ namespace Web.Controllers
             {
                 return HttpNotFound();
             }
-            return View(produto);
-        }
-
-        //
-        // GET: /Produtos/Create
-
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        //
-        // POST: /Produtos/Create
-
-        [HttpPost]
-        public ActionResult Create(Produto produto)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Produto.Add(produto);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
             return View(produto);
         }
 
@@ -115,24 +97,42 @@ namespace Web.Controllers
 
         public ActionResult Add(int id=0)
         {
-            loadFornecedor();
+            produtoSelecionado = id;
             
             FornecedorProduto fornecedorProduto = new FornecedorProduto();
-            fornecedorProduto.Fornecedor = fornecedor;
             fornecedorProduto.Produto = db.Produto.Find(id);
-            fornecedorProduto.ValorUnitario = 3;
 
-            fornecedor.FornecedorProduto.Add(fornecedorProduto);
+            return View("Valor", fornecedorProduto);
+        }
 
-            db.Entry(fornecedor).State = EntityState.Modified;
-            db.SaveChanges();
+        public ActionResult Valor(FornecedorProduto fornecedorProduto)
+        {       
+            return View(fornecedorProduto);    
+        }
+
+        public ActionResult AddValor(FornecedorProduto fornecedorProduto)
+        {
+            try
+            {
+                loadFornecedor();
+                fornecedorProduto.Fornecedor = fornecedor;
+                fornecedorProduto.Produto = db.Produto.Find(produtoSelecionado);
+                fornecedor.FornecedorProduto.Add(fornecedorProduto);
+
+                db.Entry(fornecedor).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
             return RedirectToAction("Index");
         }
 
         public void loadProdutos()
         {
             loadFornecedor();
-            
+            //FIXME carregar valores
             foreach (var fp in fornecedorProdutos)
             {
                 produtos.Add(db.Produto.Find(fp.ProdutoID));    

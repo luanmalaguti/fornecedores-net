@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Model.Pedido>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3><span class="label label-default">Meus Pedidos</span></h3>
+<br/>
+<table class="table">
+    <tr>
+        <th>
+            @Html.Label("Descrição")
+        </th>
+        <th>
+            @Html.Label("Status")
+        </th>
+        <th>
+             @Html.Label("Prazo")
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prazo)
+        </td>
+
+        <td>
+            @Html.ActionLink("Visualizar", "Details", new { id=item.Id })     
+        </td>
+    </tr>
+}
+
+</table>
