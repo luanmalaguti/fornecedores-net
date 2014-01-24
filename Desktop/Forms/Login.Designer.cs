@@ -36,6 +36,7 @@
             this.tbSenha = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btLogin = new System.Windows.Forms.Button();
+            this.lbError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -116,12 +117,23 @@
             this.btLogin.UseVisualStyleBackColor = true;
             this.btLogin.Click += new System.EventHandler(this.btLogin_Click);
             // 
+            // lbError
+            // 
+            this.lbError.AutoSize = true;
+            this.lbError.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbError.ForeColor = System.Drawing.Color.Red;
+            this.lbError.Location = new System.Drawing.Point(18, 345);
+            this.lbError.Name = "lbError";
+            this.lbError.Size = new System.Drawing.Size(0, 13);
+            this.lbError.TabIndex = 8;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(273, 354);
+            this.ClientSize = new System.Drawing.Size(273, 363);
+            this.Controls.Add(this.lbError);
             this.Controls.Add(this.btLogin);
             this.Controls.Add(this.lbSenha);
             this.Controls.Add(this.tbSenha);
@@ -148,5 +160,6 @@
         private System.Windows.Forms.TextBox tbSenha;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btLogin;
+        private System.Windows.Forms.Label lbError;
     }
 }

@@ -25,7 +25,11 @@ namespace Desktop.Forms
                if (new LoginController().Login(tbUsername.Text, tbSenha.Text))
                {
                    new Principal().Show();
-               } 
+               }
+               else
+               {
+                   lbError.Text = "Login ou Senha inválidos";
+               }
             }
         }
 
