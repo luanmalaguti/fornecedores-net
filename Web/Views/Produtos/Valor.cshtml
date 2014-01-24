@@ -1,0 +1,44 @@
+﻿@model Model.POCO.FornecedorProduto
+
+@{
+    ViewBag.Title = "Valor";
+}
+
+<h3> <span class="label label-default">Informe o valor do seu Produto</span></h3>
+<br/>
+@using (Html.BeginForm("AddValor", "Produtos", FormMethod.Get, new {@class = ".form-actions"}))
+{
+    <fieldset>
+        <legend>Produto</legend>
+
+        <div class="display-label">
+            @Html.Label("Descrição")
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Produto.Descricao)
+        </div>
+
+        <div class="display-label">
+            @Html.Label("Tamanho")
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Produto.Tamanho)
+        </div>
+
+        <div class="display-label">
+            @Html.Label("Unidade de Medida")
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Produto.UnidadeMedida)
+        </div>
+    
+        <div class="display-label">
+            @Html.Label("Valor")
+        </div>
+        <div class="display-field">
+            @Html.EditorFor(model => model.ValorUnitario)
+        </div>
+        <br/>
+         <input type="submit" value="Salvar"/>
+    </fieldset>
+}

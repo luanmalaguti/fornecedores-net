@@ -23,7 +23,9 @@ else
             <th>
                 @Html.DisplayName("Unidade de Medida")
             </th>
-            <th></th>
+            <th>
+                
+            </th>
         </tr>
 
         @foreach (var item in Model)
@@ -41,13 +43,14 @@ else
                 </td>
                 <td>
                     <button class="btn">
-                        @Html.ActionLink("+ Adicionar", "Add", new {id = item.Id}) 
+                        @Html.ActionLink("+ Adicionar", "Add", new { id = item.Id }) 
                     </button>
                 </td>
             </tr>
         }
 
     </table>
+        
 }
 <br/>
 @Html.ActionLink("Voltar", "Index")
