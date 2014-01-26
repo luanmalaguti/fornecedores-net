@@ -36,5 +36,7 @@ namespace Desktop.Forms.Template
         {
             lbErro.Text = "";
         }
+
+       
     }
 }

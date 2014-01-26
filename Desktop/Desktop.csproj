@@ -64,11 +64,29 @@
     <Compile Include="Forms\Principal.Designer.cs">
       <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Produtos\CadastroProdutos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Produtos\CadastroProdutos.Designer.cs">
+      <DependentUpon>CadastroProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Produtos\ConsultaProdutos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Produtos\ConsultaProdutos.Designer.cs">
+      <DependentUpon>ConsultaProdutos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Template\BasicCadastro.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Template\BasicCadastro.Designer.cs">
       <DependentUpon>BasicCadastro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Template\BasicConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Template\BasicConsulta.Designer.cs">
+      <DependentUpon>BasicConsulta.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Template\BasicForm.cs">
       <SubType>Form</SubType>
@@ -79,6 +97,12 @@
     <Compile Include="Forms\User\CadastroUsuario.Designer.cs">
       <DependentUpon>CadastroUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\User\ConsultaUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User\ConsultaUsuario.Designer.cs">
+      <DependentUpon>ConsultaUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Login.resx">
@@ -87,11 +111,20 @@
     <EmbeddedResource Include="Forms\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Produtos\ConsultaProdutos.resx">
+      <DependentUpon>ConsultaProdutos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Template\BasicCadastro.resx">
       <DependentUpon>BasicCadastro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Template\BasicConsulta.resx">
+      <DependentUpon>BasicConsulta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\User\CadastroUsuario.resx">
       <DependentUpon>CadastroUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\User\ConsultaUsuario.resx">
+      <DependentUpon>ConsultaUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

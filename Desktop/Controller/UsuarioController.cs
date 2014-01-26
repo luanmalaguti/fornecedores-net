@@ -45,5 +45,6 @@ namespace Desktop.Controller
         {
             return db.Usuario.ToList();
         }
+
     }
 }

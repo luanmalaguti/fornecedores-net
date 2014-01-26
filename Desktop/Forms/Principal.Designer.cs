@@ -70,15 +70,16 @@
             // UsuariosNovo
             // 
             this.UsuariosNovo.Name = "UsuariosNovo";
-            this.UsuariosNovo.Size = new System.Drawing.Size(152, 22);
+            this.UsuariosNovo.Size = new System.Drawing.Size(109, 22);
             this.UsuariosNovo.Text = "Novo";
             this.UsuariosNovo.Click += new System.EventHandler(this.UsuariosNovo_Click);
             // 
             // UsuariosBuscar
             // 
             this.UsuariosBuscar.Name = "UsuariosBuscar";
-            this.UsuariosBuscar.Size = new System.Drawing.Size(152, 22);
+            this.UsuariosBuscar.Size = new System.Drawing.Size(109, 22);
             this.UsuariosBuscar.Text = "Buscar";
+            this.UsuariosBuscar.Click += new System.EventHandler(this.UsuariosBuscar_Click);
             // 
             // produtosToolStripMenuItem
             // 
@@ -92,14 +93,16 @@
             // ProdutosNovo
             // 
             this.ProdutosNovo.Name = "ProdutosNovo";
-            this.ProdutosNovo.Size = new System.Drawing.Size(109, 22);
+            this.ProdutosNovo.Size = new System.Drawing.Size(152, 22);
             this.ProdutosNovo.Text = "Novo";
+            this.ProdutosNovo.Click += new System.EventHandler(this.ProdutosNovo_Click);
             // 
             // ProdutosBuscar
             // 
             this.ProdutosBuscar.Name = "ProdutosBuscar";
-            this.ProdutosBuscar.Size = new System.Drawing.Size(109, 22);
+            this.ProdutosBuscar.Size = new System.Drawing.Size(152, 22);
             this.ProdutosBuscar.Text = "Buscar";
+            this.ProdutosBuscar.Click += new System.EventHandler(this.ProdutosBuscar_Click);
             // 
             // teste2ToolStripMenuItem
             // 

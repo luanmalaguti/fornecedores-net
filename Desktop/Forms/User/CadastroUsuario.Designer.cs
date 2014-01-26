@@ -67,6 +67,7 @@
             // BtBuscar
             // 
             this.BtBuscar.Location = new System.Drawing.Point(299, 4);
+            this.BtBuscar.Click += new System.EventHandler(this.BtBuscar_Click);
             // 
             // label1
             // 

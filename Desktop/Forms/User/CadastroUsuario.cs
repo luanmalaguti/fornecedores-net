@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Desktop.Controller;
 using Desktop.Forms.Template;
-using Model;
 using Model.POCO;
 
 namespace Desktop.Forms.User
@@ -30,8 +22,8 @@ namespace Desktop.Forms.User
 
         protected override void ToFields()
         {
-            TbUsername.Text = usuario.Username;
-            TbSenha.Text = usuario.Password;
+            TbUsername.Text = usuario == null ? "" : usuario.Username;
+            TbSenha.Text = usuario == null ? "" : usuario.Password;
         }
 
         protected override void ToData()
@@ -92,10 +84,20 @@ namespace Desktop.Forms.User
         public void Novo()
         {
             this.usuario = new Usuario();
-            Clear(this.Controls);
+            ToFields();
+            TbConfirmacao.Text = "";
             ClearMessage();
         }
 
-        
+        private void BtBuscar_Click(object sender, EventArgs e)
+        {
+            var consulta = new ConsultaUsuario();
+
+            if (consulta.ShowDialog(this) == DialogResult.OK)
+            {
+                this.usuario = consulta.usuario;
+                ToFields();
+            }
+        }
     }
 }

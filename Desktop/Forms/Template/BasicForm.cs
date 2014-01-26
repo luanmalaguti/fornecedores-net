@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using System.Windows.Forms;
 
 namespace Desktop.Forms.Template
 {
     public class BasicForm : Form
     {
-        public void Clear(System.Windows.Forms.Control.ControlCollection controls)
+        public void Clear(Control.ControlCollection controls)
         {
             foreach (Control c in controls)
             {
