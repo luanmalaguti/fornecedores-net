@@ -31,14 +31,14 @@
             this.components = new System.ComponentModel.Container();
             this.Menu = new System.Windows.Forms.MenuStrip();
             this.testeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.teste2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.PedidosNovo = new System.Windows.Forms.ToolStripMenuItem();
             this.UsuariosNovo = new System.Windows.Forms.ToolStripMenuItem();
             this.UsuariosBuscar = new System.Windows.Forms.ToolStripMenuItem();
-            this.PedidosBuscar = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ProdutosNovo = new System.Windows.Forms.ToolStripMenuItem();
             this.ProdutosBuscar = new System.Windows.Forms.ToolStripMenuItem();
+            this.teste2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PedidosNovo = new System.Windows.Forms.ToolStripMenuItem();
+            this.PedidosBuscar = new System.Windows.Forms.ToolStripMenuItem();
             this.Sair = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.PanelBotoes = new System.Windows.Forms.Panel();
@@ -67,38 +67,18 @@
             this.testeToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             this.testeToolStripMenuItem.Text = "Usuários";
             // 
-            // teste2ToolStripMenuItem
-            // 
-            this.teste2ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.PedidosNovo,
-            this.PedidosBuscar});
-            this.teste2ToolStripMenuItem.Name = "teste2ToolStripMenuItem";
-            this.teste2ToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.teste2ToolStripMenuItem.Text = "Pedidos";
-            // 
-            // PedidosNovo
-            // 
-            this.PedidosNovo.Name = "PedidosNovo";
-            this.PedidosNovo.Size = new System.Drawing.Size(152, 22);
-            this.PedidosNovo.Text = "Novo";
-            // 
             // UsuariosNovo
             // 
             this.UsuariosNovo.Name = "UsuariosNovo";
             this.UsuariosNovo.Size = new System.Drawing.Size(152, 22);
             this.UsuariosNovo.Text = "Novo";
+            this.UsuariosNovo.Click += new System.EventHandler(this.UsuariosNovo_Click);
             // 
             // UsuariosBuscar
             // 
             this.UsuariosBuscar.Name = "UsuariosBuscar";
             this.UsuariosBuscar.Size = new System.Drawing.Size(152, 22);
             this.UsuariosBuscar.Text = "Buscar";
-            // 
-            // PedidosBuscar
-            // 
-            this.PedidosBuscar.Name = "PedidosBuscar";
-            this.PedidosBuscar.Size = new System.Drawing.Size(152, 22);
-            this.PedidosBuscar.Text = "Buscar";
             // 
             // produtosToolStripMenuItem
             // 
@@ -112,14 +92,35 @@
             // ProdutosNovo
             // 
             this.ProdutosNovo.Name = "ProdutosNovo";
-            this.ProdutosNovo.Size = new System.Drawing.Size(152, 22);
+            this.ProdutosNovo.Size = new System.Drawing.Size(109, 22);
             this.ProdutosNovo.Text = "Novo";
             // 
             // ProdutosBuscar
             // 
             this.ProdutosBuscar.Name = "ProdutosBuscar";
-            this.ProdutosBuscar.Size = new System.Drawing.Size(152, 22);
+            this.ProdutosBuscar.Size = new System.Drawing.Size(109, 22);
             this.ProdutosBuscar.Text = "Buscar";
+            // 
+            // teste2ToolStripMenuItem
+            // 
+            this.teste2ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.PedidosNovo,
+            this.PedidosBuscar});
+            this.teste2ToolStripMenuItem.Name = "teste2ToolStripMenuItem";
+            this.teste2ToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.teste2ToolStripMenuItem.Text = "Pedidos";
+            // 
+            // PedidosNovo
+            // 
+            this.PedidosNovo.Name = "PedidosNovo";
+            this.PedidosNovo.Size = new System.Drawing.Size(109, 22);
+            this.PedidosNovo.Text = "Novo";
+            // 
+            // PedidosBuscar
+            // 
+            this.PedidosBuscar.Name = "PedidosBuscar";
+            this.PedidosBuscar.Size = new System.Drawing.Size(109, 22);
+            this.PedidosBuscar.Text = "Buscar";
             // 
             // Sair
             // 
