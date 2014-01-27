@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Model;
 using Context.DAO;
+using Model.POCO;
 using Model.Util;
 
 namespace Web.Controllers
@@ -15,6 +16,8 @@ namespace Web.Controllers
     public class PedidosController : Controller
     {
         private FornecedoresContext db = new FornecedoresContext();
+        private Usuario userSessao;
+        private Fornecedor fornecedor;
 
         //
         // GET: /Pedidos/
@@ -23,7 +26,7 @@ namespace Web.Controllers
         {
             if (HttpContext.User.Identity.IsAuthenticated && Session["userAccount"] != null)
             {
-                return View(db.Pedido.ToList());
+                return View(LoadPedidos());
             }
 
             return RedirectToAction("Unauthorized", "Acess");
@@ -91,5 +94,18 @@ namespace Web.Controllers
 
             return pedido;
         }
+
+        public List<Pedido> LoadPedidos()
+        {
+            LoadFornecedor();
+            return fornecedor.Pedidos.ToList();
+        }
+
+        public void LoadFornecedor()
+        {
+            userSessao = (Usuario)Session["userAccount"];
+            fornecedor = db.Fornecedor.Where(f => f.Id == userSessao.Fornecedor.Id).Include(f => f.Pedidos).FirstOrDefault();
+        }
     }
+
 }

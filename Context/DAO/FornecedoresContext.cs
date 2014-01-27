@@ -23,10 +23,6 @@ namespace Context.DAO
         {      
         }
 
-        public FornecedoresContext(string path) : base(path)
-        {
-        }
-
         /// <example>
         /// Para tornar uma nova entidade persistivel deve-se registra-la da seguinte maneira:
         /// 
@@ -47,11 +43,5 @@ namespace Context.DAO
 
         public DbSet<FornecedorProduto> FornecedorProdutos { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-//            modelBuilder.Entity<Usuario>().HasOptional(t => t.Fornecedor).WithRequired(t => t.usuario);
-//            modelBuilder.Entity<Fornecedor>().HasKey(t => t.Id);
-//            base.OnModelCreating(modelBuilder);
-        }
     }
 }

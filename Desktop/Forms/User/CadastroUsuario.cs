@@ -17,7 +17,6 @@ namespace Desktop.Forms.User
             this.usuario = new Usuario();
 
             InitializeComponent();
-            Clear(this.Controls);
         }
 
         protected override void ToFields()
@@ -37,13 +36,11 @@ namespace Desktop.Forms.User
         {
             ToData();
 
-            if (!IsValid())
+            if (IsValid())
             {
-                return;
+                usuario = controller.Save(usuario);
+                ShowSuccess("Cadastro realizado com sucesso!");
             }
-
-            usuario = controller.Save(usuario);
-            ShowSuccess("Cadastro realizado com sucesso!");
         }
 
         private void BtNovo_Click(object sender, EventArgs e)

@@ -22,7 +22,7 @@ namespace Web.Controllers
         {
             if (HttpContext.User.Identity.IsAuthenticated && UserAuthorization.IsAdmin())
             {
-                return View(db.Usuario.Include(f => f.Fornecedor).ToList());
+                return View(db.Usuario.Where(f => !f.Admin).Include(f => f.Fornecedor).ToList());
             }
 
             return RedirectToAction("Unauthorized", "Acess");

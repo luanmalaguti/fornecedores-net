@@ -67,7 +67,7 @@ namespace Web.Controllers
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            loadFornecedor();
+            LoadFornecedor();
             Produto produto = db.Produto.Find(id);
 
             FornecedorProduto fp = 
@@ -82,7 +82,7 @@ namespace Web.Controllers
 
         public ActionResult Adicionar()
         {
-            loadFornecedor();
+            LoadFornecedor();
             produtos = db.Produto.ToList();
             //remove os produtos que o usuario já tem adicionado
             foreach (var fp in fornecedorProdutos)
@@ -114,7 +114,7 @@ namespace Web.Controllers
         {
             try
             {
-                loadFornecedor();
+                LoadFornecedor();
                 fornecedorProduto.Fornecedor = fornecedor;
                 fornecedorProduto.Produto = db.Produto.Find(produtoSelecionado);
                 fornecedor.FornecedorProduto.Add(fornecedorProduto);
@@ -131,18 +131,17 @@ namespace Web.Controllers
 
         public void loadProdutos()
         {
-            loadFornecedor();
-            //FIXME carregar valores
+            LoadFornecedor();
             foreach (var fp in fornecedorProdutos)
             {
                 produtos.Add(db.Produto.Find(fp.ProdutoID));    
             }
         }
 
-        public void loadFornecedor()
+        public void LoadFornecedor()
         {
             userSessao = (Usuario)Session["userAccount"];
-            fornecedor = db.Fornecedor.Where(f => f.Id == userSessao.Id).Include(f => f.FornecedorProduto).FirstOrDefault();
+            fornecedor = db.Fornecedor.Where(f => f.Id == userSessao.Fornecedor.Id).Include(f => f.FornecedorProduto).FirstOrDefault();
             fornecedorProdutos = fornecedor.FornecedorProduto;
         }
 

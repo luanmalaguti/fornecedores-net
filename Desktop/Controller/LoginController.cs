@@ -11,11 +11,12 @@ namespace Desktop.Controller
 {
     public class LoginController
     {
+        public Usuario usuario { get; set; }
         private FornecedoresContext db = ConnProvider.getContext();
 
         public bool Login(string username, string password)
         {
-            Usuario usuario = db.Usuario.FirstOrDefault(u => u.Username == username && u.Password == password);
+            usuario = db.Usuario.FirstOrDefault(u => u.Username == username && u.Password == password);
             
             return (usuario != null && usuario.Admin);
         }

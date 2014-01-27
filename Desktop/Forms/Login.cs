@@ -13,6 +13,8 @@ namespace Desktop.Forms
 {
     public partial class Login : Form
     {
+        private LoginController controller = new LoginController();
+        
         public Login()
         {
             InitializeComponent();
@@ -22,9 +24,9 @@ namespace Desktop.Forms
         {
             if (ValidarCampos())
             {
-               if (new LoginController().Login(tbUsername.Text, tbSenha.Text))
+               if (controller.Login(tbUsername.Text, tbSenha.Text))
                {
-                   new Principal().Show();
+                   new Principal(controller.usuario).Show();
                }
                else
                {

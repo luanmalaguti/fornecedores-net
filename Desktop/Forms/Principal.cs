@@ -10,14 +10,20 @@ using System.Windows.Forms;
 using Desktop.Forms.Produtos;
 using Desktop.Forms.Template;
 using Desktop.Forms.User;
+using Model;
+using Model.POCO;
 
 namespace Desktop.Forms
 {
     public partial class Principal : BasicForm
     {
-        public Principal()
+        private Usuario usuario { get; set; }
+        
+        public Principal(Usuario usuario)
         {
+            this.usuario = usuario;
             InitializeComponent();
+            LbLogado.Text = usuario.Username;
         }
 
         private void UsuariosNovo_Click(object sender, EventArgs e)
@@ -38,6 +44,16 @@ namespace Desktop.Forms
         private void ProdutosBuscar_Click(object sender, EventArgs e)
         {
             new ConsultaProdutos().Show();
+        }
+
+        private void Sair_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void BtFornecedores_Click(object sender, EventArgs e)
+        {
+            new MeusFornecedores().Show();
         }
     }
 }

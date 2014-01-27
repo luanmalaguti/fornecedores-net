@@ -54,19 +54,27 @@
             // 
             // BtNovo
             // 
+            this.BtNovo.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BtNovo.UseVisualStyleBackColor = false;
             this.BtNovo.Click += new System.EventHandler(this.BtNovo_Click);
             // 
             // BtRemover
             // 
+            this.BtRemover.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BtRemover.UseVisualStyleBackColor = false;
             this.BtRemover.Click += new System.EventHandler(this.BtRemover_Click);
             // 
             // BtSalvar
             // 
+            this.BtSalvar.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BtSalvar.UseVisualStyleBackColor = false;
             this.BtSalvar.Click += new System.EventHandler(this.BtSalvar_Click);
             // 
             // BtBuscar
             // 
+            this.BtBuscar.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.BtBuscar.Location = new System.Drawing.Point(299, 4);
+            this.BtBuscar.UseVisualStyleBackColor = false;
             this.BtBuscar.Click += new System.EventHandler(this.BtBuscar_Click);
             // 
             // label1

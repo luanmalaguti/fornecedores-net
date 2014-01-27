@@ -41,9 +41,11 @@
             // 
             // BtBuscar
             // 
+            this.BtBuscar.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.BtBuscar.Location = new System.Drawing.Point(362, 6);
             this.BtBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.BtBuscar.Size = new System.Drawing.Size(143, 34);
+            this.BtBuscar.UseVisualStyleBackColor = false;
             this.BtBuscar.Click += new System.EventHandler(this.BtBuscar_Click);
             // 
             // TbBuscar
@@ -60,6 +62,7 @@
             this.Tabela.Name = "Tabela";
             this.Tabela.Size = new System.Drawing.Size(504, 259);
             this.Tabela.TabIndex = 1;
+            this.Tabela.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Tabela_MouseDoubleClick);
             // 
             // ConsultaProdutos
             // 
