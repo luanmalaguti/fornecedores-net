@@ -165,6 +165,7 @@
             this.BtFornecedores.TabIndex = 2;
             this.BtFornecedores.Text = "Meus Fornecedores";
             this.BtFornecedores.UseVisualStyleBackColor = false;
+            this.BtFornecedores.Click += new System.EventHandler(this.BtFornecedores_Click);
             // 
             // LbLogado
             // 

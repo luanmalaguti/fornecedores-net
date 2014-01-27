@@ -50,5 +50,10 @@ namespace Desktop.Forms
         {
             this.Dispose();
         }
+
+        private void BtFornecedores_Click(object sender, EventArgs e)
+        {
+            new MeusFornecedores().Show();
+        }
     }
 }

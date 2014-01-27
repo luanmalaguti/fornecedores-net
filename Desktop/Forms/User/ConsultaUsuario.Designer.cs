@@ -41,9 +41,11 @@
             // 
             // BtBuscar
             // 
+            this.BtBuscar.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.BtBuscar.Location = new System.Drawing.Point(396, 6);
             this.BtBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.BtBuscar.Size = new System.Drawing.Size(143, 34);
+            this.BtBuscar.UseVisualStyleBackColor = false;
             this.BtBuscar.Click += new System.EventHandler(this.BtBuscar_Click);
             // 
             // TbBuscar

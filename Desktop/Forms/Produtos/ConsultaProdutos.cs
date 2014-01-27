@@ -22,6 +22,7 @@ namespace Desktop.Forms.Produtos
         public ConsultaProdutos()
         {
             this.Text = "Consulta de Produtos";
+
             InitializeComponent();
             Buscar("");
         }

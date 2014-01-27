@@ -50,14 +50,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\Controller.cs" />
+    <Compile Include="Controller\FornecedorController.cs" />
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\ProdutoController.cs" />
     <Compile Include="Controller\UsuarioController.cs" />
+    <Compile Include="Forms\Fornecedores\ProdutosDoFornecedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Fornecedores\ProdutosDoFornecedor.Designer.cs">
+      <DependentUpon>ProdutosDoFornecedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Fornecedores\MeusFornecedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Fornecedores\MeusFornecedores.Designer.cs">
+      <DependentUpon>MeusFornecedores.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Principal.cs">
       <SubType>Form</SubType>
@@ -106,8 +119,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Fornecedores\ProdutosDoFornecedor.resx">
+      <DependentUpon>ProdutosDoFornecedor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Fornecedores\MeusFornecedores.resx">
+      <DependentUpon>MeusFornecedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
