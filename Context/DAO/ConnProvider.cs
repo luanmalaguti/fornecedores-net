@@ -11,11 +11,11 @@ namespace Context.DAO
     {
         private static FornecedoresContext db;
         
-        private ConnProvider(string path)
+        private ConnProvider()
         {
-            db = path == null ? new FornecedoresContext() : new FornecedoresContext(path);
+            db = new FornecedoresContext();
         }
-       
+
         /// <summary>
         /// Acesso para o contexto de conexão da aplicação
         /// </summary>
@@ -24,7 +24,7 @@ namespace Context.DAO
         {
             if (db == null)
             {
-                new ConnProvider(null);
+                new ConnProvider();
             }
 
             return db;
