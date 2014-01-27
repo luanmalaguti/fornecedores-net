@@ -17,7 +17,7 @@ namespace Desktop.Forms.Produtos
     public partial class ConsultaProdutos : BasicConsulta
     {
         public Produto produto { get; set; }
-        private UsuarioController controller = new UsuarioController();
+        private ProdutoController controller = new ProdutoController();
         
         public ConsultaProdutos()
         {
@@ -54,6 +54,19 @@ namespace Desktop.Forms.Produtos
         private void TbBuscar_TextChanged(object sender, EventArgs e)
         {
             Buscar(TbBuscar.Text);
+        }
+
+        private void Tabela_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            LoadProduto();
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void LoadProduto()
+        {
+           this.produto = new Produto();
+           int id = Convert.ToInt32(Tabela.CurrentRow.Cells[0].Value);
+           this.produto = controller.Find(id);
         }
     }
 }

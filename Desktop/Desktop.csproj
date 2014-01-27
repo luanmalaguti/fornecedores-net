@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Controller\Controller.cs" />
     <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\ProdutoController.cs" />
     <Compile Include="Controller\UsuarioController.cs" />
     <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
@@ -110,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Produtos\CadastroProdutos.resx">
+      <DependentUpon>CadastroProdutos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Produtos\ConsultaProdutos.resx">
       <DependentUpon>ConsultaProdutos.cs</DependentUpon>

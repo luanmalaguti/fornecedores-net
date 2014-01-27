@@ -60,6 +60,7 @@
             this.Tabela.Name = "Tabela";
             this.Tabela.Size = new System.Drawing.Size(504, 259);
             this.Tabela.TabIndex = 1;
+            this.Tabela.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Tabela_MouseDoubleClick);
             // 
             // ConsultaProdutos
             // 
