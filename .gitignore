@@ -16,7 +16,7 @@ TestResults
 #Banco de dados
 *.mdf
 *.log
-*Web.config
+
 
 # Build results
 [Dd]ebug/
