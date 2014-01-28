@@ -16,6 +16,8 @@ namespace Desktop.Controller
 
         public bool Login(string username, string password)
         {
+            db.Database.CreateIfNotExists();
+            
             usuario = db.Usuario.FirstOrDefault(u => u.Username == username && u.Password == password);
             
             return (usuario != null && usuario.Admin);
