@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Desktop.Controller;
 using Model;
 using Model.POCO;
+using Model.Util;
 
 namespace Desktop.Forms.Pedidos
 {
@@ -17,6 +18,7 @@ namespace Desktop.Forms.Pedidos
     {
         private ProdutoController produtoController = new ProdutoController();
         private PedidoController pedidoController = new PedidoController();
+        private FornecedorController fornecedorController = new FornecedorController();
 
         private Fornecedor fornecedor;
         private List<Produto> produtos = new List<Produto>(); 
@@ -105,7 +107,36 @@ namespace Desktop.Forms.Pedidos
 
         private void BtPedido_Click(object sender, EventArgs e)
         {
-            IsValid();
+            if (IsValid())
+            {
+                pedido.Descricao = TbDescricao.Text;
+                pedido.Prazo = Convert.ToDateTime(TbPrazo.Text);
+                pedido.Entrega = Convert.ToDateTime(TbPrazo.Text);
+                pedido.Status = StatusPedido.AGUARDANDO;
+
+                pedido = pedidoController.Save(pedido);
+
+                // adiciona os produtos atuais da lista no pedido
+                foreach (var p in produtos)
+                {
+                    ItemPedido item = new ItemPedido();
+                    item.Pedido = pedido;
+                    item.Produto = p;
+                    item.quantidade = 1;
+
+                    pedido.ItemsPedido.Add(item);
+                }
+
+                // registra o pedido
+                pedidoController.Save(pedido);
+
+                // registra o pedido para o fornecedor selecionado
+                fornecedor.Pedidos.Add(pedido);
+                fornecedorController.Save(fornecedor);
+
+                ShowSuccess("Pedido ao fornecedor "+fornecedor.RazaoSocial+" efetuado com sucesso");
+            }
+
         }
     }
 }

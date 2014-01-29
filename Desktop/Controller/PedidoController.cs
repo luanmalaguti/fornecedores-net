@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,17 @@ namespace Desktop.Controller
         
         public Pedido Save(Pedido t)
         {
-            throw new NotImplementedException();
+            if (t.Id == 0)
+            {
+                t = db.Pedido.Add(t);
+            }
+            else
+            {
+                db.Entry(t).State = EntityState.Modified;
+            }
+
+            db.SaveChanges();
+            return t;
         }
 
         public void Remove(Pedido t)
