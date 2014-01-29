@@ -10,17 +10,20 @@ using System.Windows.Forms;
 using Context.DAO;
 using Desktop.Controller;
 using Desktop.Forms.Fornecedores;
+using Desktop.Forms.Pedidos;
 using Model;
 namespace Desktop.Forms
 {
     public partial class MeusFornecedores : Form
     {
         private FornecedorController controller = new FornecedorController();
-        private Fornecedor selecionado; 
+        private Fornecedor selecionado;
+        private Principal principal;
         
-        public MeusFornecedores()
+        public MeusFornecedores(Principal principal)
         {
             this.Text = "Meus Fornecedores";
+            this.principal = principal;
 
             InitializeComponent();
             LoadFornecedores();
@@ -30,7 +33,7 @@ namespace Desktop.Forms
         {
             this.selecionado = new Fornecedor();
             int id = Convert.ToInt32(Tabela.CurrentRow.Cells[0].Value);
-            this.selecionado = controller.ProdutosDoFornecedor(id);
+            this.selecionado = controller.Find(id);
         }
 
         private void LoadFornecedores()
@@ -60,13 +63,17 @@ namespace Desktop.Forms
             LoadSelecionado();
             if (selecionado != null)
             {
-                new ProdutosDoFornecedor(selecionado.FornecedorProduto.)
+                new ProdutosDoFornecedor(controller.ProdutosDoFornecedor(selecionado.Id)).Show();
             }
         }
 
         private void BtPedido_Click(object sender, EventArgs e)
         {
-
+            LoadSelecionado();
+            if (selecionado != null)
+            {
+                new FazerPedido(selecionado, principal).Show();
+            }
         }
     }
 }

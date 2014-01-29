@@ -46,8 +46,12 @@
             this.LbLogado = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PanelPrincipal = new System.Windows.Forms.Panel();
+            this.Tabela = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
             this.Menu.SuspendLayout();
             this.PanelBotoes.SuspendLayout();
+            this.PanelPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Tabela)).BeginInit();
             this.SuspendLayout();
             // 
             // Menu
@@ -60,7 +64,7 @@
             this.Sair});
             this.Menu.Location = new System.Drawing.Point(0, 0);
             this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(805, 24);
+            this.Menu.Size = new System.Drawing.Size(804, 24);
             this.Menu.TabIndex = 0;
             // 
             // testeToolStripMenuItem
@@ -123,6 +127,7 @@
             this.PedidosNovo.Name = "PedidosNovo";
             this.PedidosNovo.Size = new System.Drawing.Size(120, 22);
             this.PedidosNovo.Text = "Novo";
+            this.PedidosNovo.Click += new System.EventHandler(this.PedidosNovo_Click);
             // 
             // PedidosBuscar
             // 
@@ -190,16 +195,37 @@
             // PanelPrincipal
             // 
             this.PanelPrincipal.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.PanelPrincipal.Location = new System.Drawing.Point(12, 78);
+            this.PanelPrincipal.Controls.Add(this.label2);
+            this.PanelPrincipal.Controls.Add(this.Tabela);
+            this.PanelPrincipal.Location = new System.Drawing.Point(0, 64);
             this.PanelPrincipal.Name = "PanelPrincipal";
-            this.PanelPrincipal.Size = new System.Drawing.Size(781, 267);
+            this.PanelPrincipal.Size = new System.Drawing.Size(805, 296);
             this.PanelPrincipal.TabIndex = 3;
+            // 
+            // Tabela
+            // 
+            this.Tabela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Tabela.Location = new System.Drawing.Point(26, 44);
+            this.Tabela.Name = "Tabela";
+            this.Tabela.Size = new System.Drawing.Size(752, 224);
+            this.Tabela.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label2.Location = new System.Drawing.Point(298, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(183, 23);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Últimos Pedidos";
             // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(805, 357);
+            this.ClientSize = new System.Drawing.Size(804, 361);
             this.Controls.Add(this.PanelPrincipal);
             this.Controls.Add(this.PanelBotoes);
             this.Controls.Add(this.Menu);
@@ -210,6 +236,9 @@
             this.Menu.PerformLayout();
             this.PanelBotoes.ResumeLayout(false);
             this.PanelBotoes.PerformLayout();
+            this.PanelPrincipal.ResumeLayout(false);
+            this.PanelPrincipal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Tabela)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,5 +263,7 @@
         private System.Windows.Forms.Label LbLogado;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtFornecedores;
+        private System.Windows.Forms.DataGridView Tabela;
+        private System.Windows.Forms.Label label2;
     }
 }

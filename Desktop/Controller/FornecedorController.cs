@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,17 @@ namespace Desktop.Controller
         
         public Fornecedor Save(Fornecedor t)
         {
-            throw new NotImplementedException();
+            if (t.Id == 0)
+            {
+                t = db.Fornecedor.Add(t);
+            }
+            else
+            {
+                db.Entry(t).State = EntityState.Modified;
+            }
+
+            db.SaveChanges();
+            return t;
         }
 
         public void Remove(Fornecedor t)
@@ -32,9 +43,20 @@ namespace Desktop.Controller
             return db.Fornecedor.ToList();
         }
 
-        public Fornecedor ProdutosDoFornecedor(int id)
+        public List<Produto> ProdutosDoFornecedor(int id)
         {
-            return db.Fornecedor.Find(id);
+            List<Produto> produtos = new List<Produto>();
+            
+            Fornecedor f = db.Fornecedor.Find(id);
+            
+            foreach (var fp in f.FornecedorProduto)
+            {
+                Produto p = db.Produto.Find(fp.ProdutoID);
+                p.valor = fp.ValorUnitario;
+                produtos.Add(p);
+            }
+
+            return produtos;
         }
     }
 }

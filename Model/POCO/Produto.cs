@@ -25,12 +25,14 @@ namespace Model
 
         public string UnidadeMedida { get; set; }
 
+        [NotMapped]
+        public double valor { get; set; }
+
         public virtual ICollection<FornecedorProduto> FornecedorProduto { get; set; }
 
         public virtual ICollection<ItemPedido> ItemsPedido { get; set; }
 
-        [NotMapped]
-        private double valor { get; set; }
+        
 
     }
 }

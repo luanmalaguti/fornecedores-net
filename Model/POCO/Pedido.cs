@@ -22,6 +22,9 @@ namespace Model
         [Required(ErrorMessage = "Informe o Status do Pedido")]
         public StatusPedido Status { get; set; }
 
+
+        public double Total { get; set; }
+
         public System.DateTime Prazo { get; set; }
 
         public System.DateTime Entrega { get; set; }

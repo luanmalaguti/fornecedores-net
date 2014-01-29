@@ -14,13 +14,34 @@ namespace Desktop.Controller
         public Usuario usuario { get; set; }
         private FornecedoresContext db = ConnProvider.getContext();
 
+        public LoginController()
+        {
+            Usuario u = null;
+ 
+            if(!db.Database.Exists())
+            {
+                u = new Usuario();
+                u.Username = "admin";
+                u.Password = "admin";
+                u.Admin = true;
+            }
+
+            db.Database.CreateIfNotExists();
+
+            // cria o usuario padrao se o banco é novo
+            if (u != null)
+            {
+                db.Usuario.Add(u);
+                db.SaveChanges();
+            }
+        }
+
         public bool Login(string username, string password)
         {
-            db.Database.CreateIfNotExists();
-            
             usuario = db.Usuario.FirstOrDefault(u => u.Username == username && u.Password == password);
-            
+  
             return (usuario != null && usuario.Admin);
         }
+       
     }
 }
