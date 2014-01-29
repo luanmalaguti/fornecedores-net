@@ -23,10 +23,12 @@ namespace Desktop.Forms.Pedidos
         private Fornecedor fornecedor;
         private List<Produto> produtos = new List<Produto>(); 
         private Pedido pedido = new Pedido();
+        private Principal principal;
 
-        public FazerPedido(Fornecedor fornecedor)
+        public FazerPedido(Fornecedor fornecedor, Principal principal)
         {
             this.fornecedor = fornecedor;
+            this.principal = principal;
             InitializeComponent();
 
             TbFornecedor.Text = fornecedor.RazaoSocial;
@@ -134,7 +136,11 @@ namespace Desktop.Forms.Pedidos
                 fornecedor.Pedidos.Add(pedido);
                 fornecedorController.Save(fornecedor);
 
+                //atualiza a tabela da tela principal
+                principal.UpdateTabela();
+
                 ShowSuccess("Pedido ao fornecedor "+fornecedor.RazaoSocial+" efetuado com sucesso");
+
             }
 
         }

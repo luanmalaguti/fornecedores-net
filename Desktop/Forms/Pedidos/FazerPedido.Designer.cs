@@ -70,6 +70,7 @@
             // 
             // TbFornecedor
             // 
+            this.TbFornecedor.Enabled = false;
             this.TbFornecedor.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TbFornecedor.Location = new System.Drawing.Point(16, 76);
             this.TbFornecedor.Name = "TbFornecedor";
@@ -92,12 +93,13 @@
             this.TbPrazo.Location = new System.Drawing.Point(346, 76);
             this.TbPrazo.Mask = "00/00/0000 90:00";
             this.TbPrazo.Name = "TbPrazo";
-            this.TbPrazo.Size = new System.Drawing.Size(106, 23);
+            this.TbPrazo.Size = new System.Drawing.Size(172, 23);
             this.TbPrazo.TabIndex = 4;
             this.TbPrazo.ValidatingType = typeof(System.DateTime);
             // 
             // TbDescricao
             // 
+            this.TbDescricao.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TbDescricao.Location = new System.Drawing.Point(16, 131);
             this.TbDescricao.Name = "TbDescricao";
             this.TbDescricao.Size = new System.Drawing.Size(502, 47);

@@ -17,11 +17,13 @@ namespace Desktop.Forms
     public partial class MeusFornecedores : Form
     {
         private FornecedorController controller = new FornecedorController();
-        private Fornecedor selecionado; 
+        private Fornecedor selecionado;
+        private Principal principal;
         
-        public MeusFornecedores()
+        public MeusFornecedores(Principal principal)
         {
             this.Text = "Meus Fornecedores";
+            this.principal = principal;
 
             InitializeComponent();
             LoadFornecedores();
@@ -70,7 +72,7 @@ namespace Desktop.Forms
             LoadSelecionado();
             if (selecionado != null)
             {
-                new FazerPedido(selecionado).Show();
+                new FazerPedido(selecionado, principal).Show();
             }
         }
     }

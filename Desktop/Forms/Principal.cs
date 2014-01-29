@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Context.DAO;
+using Desktop.Controller;
 using Desktop.Forms.Produtos;
 using Desktop.Forms.Template;
 using Desktop.Forms.User;
@@ -24,6 +26,8 @@ namespace Desktop.Forms
             this.usuario = usuario;
             InitializeComponent();
             LbLogado.Text = usuario.Username;
+
+            UpdateTabela();
         }
 
         private void UsuariosNovo_Click(object sender, EventArgs e)
@@ -53,7 +57,36 @@ namespace Desktop.Forms
 
         private void BtFornecedores_Click(object sender, EventArgs e)
         {
-            new MeusFornecedores().Show();
+            new MeusFornecedores(this).Show();
+        }
+
+        private void PedidosNovo_Click(object sender, EventArgs e)
+        {
+            new MeusFornecedores(this).Show();
+        }
+
+        public void UpdateTabela()
+        {
+           var pedidos = from p in ConnProvider.getContext().Pedido
+                              
+                               select new
+                               {
+                                   p.Id,
+                                   p.Descricao,
+                                   p.Prazo,
+                                   p.Entrega,
+                                   p.Status,
+                                   p.Total,
+                               };
+
+            Tabela.DataSource = pedidos.ToList();
+
+            Tabela.Columns[0].HeaderText = "Código";
+            Tabela.Columns[1].HeaderText = "Descrição";
+            Tabela.Columns[2].HeaderText = "Prazo";
+            Tabela.Columns[3].HeaderText = "Entrega";
+            Tabela.Columns[4].HeaderText = "Status";
+            Tabela.Columns[5].HeaderText = "Total R$";
         }
     }
 }

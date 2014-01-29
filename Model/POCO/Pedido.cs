@@ -22,7 +22,7 @@ namespace Model
         [Required(ErrorMessage = "Informe o Status do Pedido")]
         public StatusPedido Status { get; set; }
 
-        [NotMapped]
+
         public double Total { get; set; }
 
         public System.DateTime Prazo { get; set; }

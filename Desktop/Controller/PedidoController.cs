@@ -40,7 +40,7 @@ namespace Desktop.Controller
 
         public ICollection<Pedido> FindAll()
         {
-            throw new NotImplementedException();
+            return db.Pedido.ToList();
         }
     }
 }
