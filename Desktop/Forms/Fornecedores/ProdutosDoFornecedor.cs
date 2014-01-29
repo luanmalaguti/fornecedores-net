@@ -15,13 +15,17 @@ namespace Desktop.Forms.Fornecedores
     {
         public ProdutosDoFornecedor(List<Produto> produtos)
         {
+            this.Text = "Produtos do fornecedor";
+
             InitializeComponent();
+            
             Tabela.DataSource = produtos.ToList();
 
             Tabela.Columns[0].HeaderText = "Código";
             Tabela.Columns[1].HeaderText = "Descrição";
             Tabela.Columns[2].HeaderText = "Tamanho";
             Tabela.Columns[3].HeaderText = "Unid. Medida";
+            Tabela.Columns[4].HeaderText = "R$";
         }
     }
 }

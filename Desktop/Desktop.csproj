@@ -52,6 +52,7 @@
     <Compile Include="Controller\Controller.cs" />
     <Compile Include="Controller\FornecedorController.cs" />
     <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\PedidoController.cs" />
     <Compile Include="Controller\ProdutoController.cs" />
     <Compile Include="Controller\UsuarioController.cs" />
     <Compile Include="Forms\Fornecedores\ProdutosDoFornecedor.cs">
@@ -71,6 +72,18 @@
     </Compile>
     <Compile Include="Forms\Fornecedores\MeusFornecedores.Designer.cs">
       <DependentUpon>MeusFornecedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Pedidos\ConsultaProdutos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Pedidos\ConsultaProdutos.Designer.cs">
+      <DependentUpon>ConsultaProdutos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Pedidos\FazerPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Pedidos\FazerPedido.Designer.cs">
+      <DependentUpon>FazerPedido.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Principal.cs">
       <SubType>Form</SubType>
@@ -127,6 +140,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Fornecedores\MeusFornecedores.resx">
       <DependentUpon>MeusFornecedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Pedidos\ConsultaProdutos.resx">
+      <DependentUpon>ConsultaProdutos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Pedidos\FazerPedido.resx">
+      <DependentUpon>FazerPedido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>

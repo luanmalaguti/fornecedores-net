@@ -32,9 +32,20 @@ namespace Desktop.Controller
             return db.Fornecedor.ToList();
         }
 
-        public Fornecedor ProdutosDoFornecedor(int id)
+        public List<Produto> ProdutosDoFornecedor(int id)
         {
-            return db.Fornecedor.Find(id);
+            List<Produto> produtos = new List<Produto>();
+            
+            Fornecedor f = db.Fornecedor.Find(id);
+            
+            foreach (var fp in f.FornecedorProduto)
+            {
+                Produto p = db.Produto.Find(fp.ProdutoID);
+                p.valor = fp.ValorUnitario;
+                produtos.Add(p);
+            }
+
+            return produtos;
         }
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace Desktop.Forms.Fornecedores
+﻿namespace Desktop.Forms.Pedidos
 {
-    partial class ProdutosDoFornecedor
+    partial class ConsultaProdutos
     {
         /// <summary>
         /// Required designer variable.
@@ -29,25 +29,39 @@
         private void InitializeComponent()
         {
             this.Tabela = new System.Windows.Forms.DataGridView();
+            this.PanelBusca.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Tabela)).BeginInit();
             this.SuspendLayout();
+            // 
+            // BtBuscar
+            // 
+            this.BtBuscar.Location = new System.Drawing.Point(394, 4);
+            // 
+            // TbBuscar
+            // 
+            this.TbBuscar.Size = new System.Drawing.Size(369, 23);
             // 
             // Tabela
             // 
             this.Tabela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Tabela.Location = new System.Drawing.Point(0, 0);
+            this.Tabela.Location = new System.Drawing.Point(-3, 43);
             this.Tabela.Name = "Tabela";
-            this.Tabela.Size = new System.Drawing.Size(514, 263);
-            this.Tabela.TabIndex = 0;
+            this.Tabela.Size = new System.Drawing.Size(501, 219);
+            this.Tabela.TabIndex = 1;
+            this.Tabela.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Tabela_MouseDoubleClick);
             // 
-            // ProdutosDoFornecedor
+            // ConsultaProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(511, 262);
+            this.ClientSize = new System.Drawing.Size(502, 262);
             this.Controls.Add(this.Tabela);
-            this.Name = "ProdutosDoFornecedor";
-            this.Text = "ProdutosDoFornecedor";
+            this.Name = "ConsultaProdutos";
+            this.Text = "ConsultaProdutos";
+            this.Controls.SetChildIndex(this.PanelBusca, 0);
+            this.Controls.SetChildIndex(this.Tabela, 0);
+            this.PanelBusca.ResumeLayout(false);
+            this.PanelBusca.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Tabela)).EndInit();
             this.ResumeLayout(false);
 
