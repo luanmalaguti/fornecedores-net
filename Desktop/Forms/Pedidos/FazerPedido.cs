@@ -70,7 +70,9 @@ namespace Desktop.Forms.Pedidos
 
             if (consulta.ShowDialog(this) == DialogResult.OK)
             {
-                this.produtos.Add(consulta.produto);
+                Produto p = consulta.produto;
+                p.quantidade = consulta.quantidade;
+                this.produtos.Add(p);
                 UpdateTabela();
             }
         }
@@ -83,16 +85,6 @@ namespace Desktop.Forms.Pedidos
                 produtos.Remove(selecionado);
                 UpdateTabela();
             }
-        }
-
-        public bool IsValid()
-        {
-            if (TbDescricao.Text.Trim().Equals(""))
-            {
-                ShowError("Campos obrigatórrios não informados!");
-                return false;
-            }
-            return true;
         }
 
         public void ShowSuccess(string msg)
@@ -124,7 +116,7 @@ namespace Desktop.Forms.Pedidos
                     ItemPedido item = new ItemPedido();
                     item.Pedido = pedido;
                     item.Produto = p;
-                    item.quantidade = 1;
+                    item.quantidade = p.quantidade;
 
                     pedido.ItemsPedido.Add(item);
                 }
@@ -140,9 +132,24 @@ namespace Desktop.Forms.Pedidos
                 principal.UpdateTabela();
 
                 ShowSuccess("Pedido ao fornecedor "+fornecedor.RazaoSocial+" efetuado com sucesso");
-
             }
 
+        }
+
+        public bool IsValid()
+        {
+            if (TbDescricao.Text.Trim().Equals(""))
+            {
+                ShowError("Campos obrigatórrios não informados!");
+                return false;
+            }
+            if (!produtos.Any())
+            {
+                ShowError("Ao menos 1 produto deve ser adicionado!");
+                return false;
+            }
+
+            return true;
         }
     }
 }
