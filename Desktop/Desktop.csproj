@@ -73,6 +73,12 @@
     <Compile Include="Forms\Fornecedores\MeusFornecedores.Designer.cs">
       <DependentUpon>MeusFornecedores.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Pedidos\BaixaPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Pedidos\BaixaPedido.Designer.cs">
+      <DependentUpon>BaixaPedido.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Pedidos\ConsultaProdutos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Fornecedores\MeusFornecedores.resx">
       <DependentUpon>MeusFornecedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Pedidos\BaixaPedido.resx">
+      <DependentUpon>BaixaPedido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Pedidos\ConsultaProdutos.resx">
       <DependentUpon>ConsultaProdutos.cs</DependentUpon>
