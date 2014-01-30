@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Model.POCO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Model.POCO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:28715/Services/WsPedidos.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Model" />
+  <xs:complexType name="ArrayOfFornecedorProduto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FornecedorProduto" nillable="true" type="tns:FornecedorProduto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFornecedorProduto" nillable="true" type="tns:ArrayOfFornecedorProduto" />
+  <xs:complexType name="FornecedorProduto">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="Fornecedor" nillable="true" type="q1:Fornecedor" />
+      <xs:element minOccurs="0" name="FornecedorID" type="xs:int" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="Produto" nillable="true" type="q2:Produto" />
+      <xs:element minOccurs="0" name="ProdutoID" type="xs:int" />
+      <xs:element minOccurs="0" name="ValorUnitario" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FornecedorProduto" nillable="true" type="tns:FornecedorProduto" />
+</xs:schema>
