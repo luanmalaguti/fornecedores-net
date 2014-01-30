@@ -12,6 +12,7 @@ namespace Desktop.Controller
     class PedidoController : Controller<Pedido>
     {
         private FornecedoresContext db = ConnProvider.getContext();
+        ProdutoController produtoController = new ProdutoController();
         
         public Pedido Save(Pedido t)
         {
@@ -35,12 +36,24 @@ namespace Desktop.Controller
 
         public Pedido Find(int id)
         {
-            throw new NotImplementedException();
+            return db.Pedido.Find(id);
         }
 
         public ICollection<Pedido> FindAll()
         {
             return db.Pedido.ToList();
         }
+
+        public List<Produto> ProdutosDoPedido(Pedido pedido)
+        {
+            List<Produto> produtos = new List<Produto>();
+
+            foreach(var item in pedido.ItemsPedido)
+            {
+                produtos.Add(produtoController.Find(item.ProdutoID));
+            }
+
+            return produtos;
+        } 
     }
 }

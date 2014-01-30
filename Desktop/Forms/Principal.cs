@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Context.DAO;
 using Desktop.Controller;
+using Desktop.Forms.Pedidos;
 using Desktop.Forms.Produtos;
 using Desktop.Forms.Template;
 using Desktop.Forms.User;
 using Model;
 using Model.POCO;
+using ConsultaProdutos = Desktop.Forms.Produtos.ConsultaProdutos;
 
 namespace Desktop.Forms
 {
@@ -87,6 +89,11 @@ namespace Desktop.Forms
             Tabela.Columns[3].HeaderText = "Entrega";
             Tabela.Columns[4].HeaderText = "Status";
             Tabela.Columns[5].HeaderText = "Total R$";
+        }
+
+        private void BtBaixa_Click(object sender, EventArgs e)
+        {
+            new BaixaPedido().Show();
         }
     }
 }

@@ -42,12 +42,13 @@
             this.Sair = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.PanelBotoes = new System.Windows.Forms.Panel();
+            this.BtBaixa = new System.Windows.Forms.Button();
             this.BtFornecedores = new System.Windows.Forms.Button();
             this.LbLogado = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.PanelPrincipal = new System.Windows.Forms.Panel();
-            this.Tabela = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
+            this.Tabela = new System.Windows.Forms.DataGridView();
             this.Menu.SuspendLayout();
             this.PanelBotoes.SuspendLayout();
             this.PanelPrincipal.SuspendLayout();
@@ -151,6 +152,7 @@
             // PanelBotoes
             // 
             this.PanelBotoes.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.PanelBotoes.Controls.Add(this.BtBaixa);
             this.PanelBotoes.Controls.Add(this.BtFornecedores);
             this.PanelBotoes.Controls.Add(this.LbLogado);
             this.PanelBotoes.Controls.Add(this.label1);
@@ -158,6 +160,18 @@
             this.PanelBotoes.Name = "PanelBotoes";
             this.PanelBotoes.Size = new System.Drawing.Size(805, 38);
             this.PanelBotoes.TabIndex = 2;
+            // 
+            // BtBaixa
+            // 
+            this.BtBaixa.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BtBaixa.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtBaixa.Location = new System.Drawing.Point(195, 4);
+            this.BtBaixa.Name = "BtBaixa";
+            this.BtBaixa.Size = new System.Drawing.Size(134, 29);
+            this.BtBaixa.TabIndex = 3;
+            this.BtBaixa.Text = "Baixa de Pedido";
+            this.BtBaixa.UseVisualStyleBackColor = false;
+            this.BtBaixa.Click += new System.EventHandler(this.BtBaixa_Click);
             // 
             // BtFornecedores
             // 
@@ -202,14 +216,6 @@
             this.PanelPrincipal.Size = new System.Drawing.Size(805, 296);
             this.PanelPrincipal.TabIndex = 3;
             // 
-            // Tabela
-            // 
-            this.Tabela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Tabela.Location = new System.Drawing.Point(26, 44);
-            this.Tabela.Name = "Tabela";
-            this.Tabela.Size = new System.Drawing.Size(752, 224);
-            this.Tabela.TabIndex = 0;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -220,6 +226,16 @@
             this.label2.Size = new System.Drawing.Size(183, 23);
             this.label2.TabIndex = 1;
             this.label2.Text = "Últimos Pedidos";
+            // 
+            // Tabela
+            // 
+            this.Tabela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Tabela.Location = new System.Drawing.Point(26, 44);
+            this.Tabela.MultiSelect = false;
+            this.Tabela.Name = "Tabela";
+            this.Tabela.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Tabela.Size = new System.Drawing.Size(752, 224);
+            this.Tabela.TabIndex = 0;
             // 
             // Principal
             // 
@@ -265,5 +281,6 @@
         private System.Windows.Forms.Button BtFornecedores;
         private System.Windows.Forms.DataGridView Tabela;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button BtBaixa;
     }
 }

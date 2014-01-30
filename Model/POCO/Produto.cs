@@ -28,6 +28,9 @@ namespace Model
         [NotMapped]
         public double valor { get; set; }
 
+        [NotMapped]
+        public int quantidade { get; set; }
+
         public virtual ICollection<FornecedorProduto> FornecedorProduto { get; set; }
 
         public virtual ICollection<ItemPedido> ItemsPedido { get; set; }

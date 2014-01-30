@@ -11,6 +11,7 @@ namespace Model.Util
         AGUARDANDO,
         ACEITO,
         REJEITADO,
-        ENTREGUE
+        ENTREGUE,
+        ATRASADO
     }
 }

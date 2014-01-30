@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:28715/Services/WsPedidos.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Model.Util" />
+  <xs:import schemaLocation="http://localhost:28715/Services/WsPedidos.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Model.POCO" />
+  <xs:complexType name="ArrayOfPedido">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Pedido" nillable="true" type="tns:Pedido" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPedido" nillable="true" type="tns:ArrayOfPedido" />
+  <xs:complexType name="Pedido">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descricao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Entrega" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ItemsPedido" nillable="true" type="tns:ArrayOfItemPedido" />
+      <xs:element minOccurs="0" name="Prazo" type="xs:dateTime" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Model.Util" minOccurs="0" name="Status" type="q1:StatusPedido" />
+      <xs:element minOccurs="0" name="Total" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Pedido" nillable="true" type="tns:Pedido" />
+  <xs:complexType name="ArrayOfItemPedido">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ItemPedido" nillable="true" type="tns:ItemPedido" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfItemPedido" nillable="true" type="tns:ArrayOfItemPedido" />
+  <xs:complexType name="ItemPedido">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Pedido" nillable="true" type="tns:Pedido" />
+      <xs:element minOccurs="0" name="PedidoID" type="xs:int" />
+      <xs:element minOccurs="0" name="Produto" nillable="true" type="tns:Produto" />
+      <xs:element minOccurs="0" name="ProdutoID" type="xs:int" />
+      <xs:element minOccurs="0" name="quantidade" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ItemPedido" nillable="true" type="tns:ItemPedido" />
+  <xs:complexType name="Produto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descricao" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Model.POCO" minOccurs="0" name="FornecedorProduto" nillable="true" type="q2:ArrayOfFornecedorProduto" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ItemsPedido" nillable="true" type="tns:ArrayOfItemPedido" />
+      <xs:element minOccurs="0" name="Tamanho" type="xs:int" />
+      <xs:element minOccurs="0" name="UnidadeMedida" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="quantidade" type="xs:int" />
+      <xs:element minOccurs="0" name="valor" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Produto" nillable="true" type="tns:Produto" />
+  <xs:complexType name="Fornecedor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cnpj" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Endereco" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Model.POCO" minOccurs="0" name="FornecedorProduto" nillable="true" type="q3:ArrayOfFornecedorProduto" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Pedidos" nillable="true" type="tns:ArrayOfPedido" />
+      <xs:element minOccurs="0" name="RazaoSocial" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Telefone" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Fornecedor" nillable="true" type="tns:Fornecedor" />
+</xs:schema>

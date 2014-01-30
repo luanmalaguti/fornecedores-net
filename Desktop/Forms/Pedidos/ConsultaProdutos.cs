@@ -18,6 +18,7 @@ namespace Desktop.Forms.Pedidos
         private FornecedorController fornecedorController = new FornecedorController();
         private ProdutoController produtoController = new ProdutoController();
         public Produto produto { get; set; }
+        public int quantidade { get; set; }
 
         public ConsultaProdutos(Fornecedor fornecedor)
         {
@@ -37,12 +38,32 @@ namespace Desktop.Forms.Pedidos
            this.produto = new Produto();
            int id = Convert.ToInt32(Tabela.CurrentRow.Cells[0].Value);
            this.produto = produtoController.Find(id);
+           this.quantidade = Convert.ToInt32(TbQtde.Text);
         }
 
         private void Tabela_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            LoadProduto();
-            this.DialogResult = DialogResult.OK;
+            if(IsValid()){
+                LoadProduto();
+                this.DialogResult = DialogResult.OK;
+            }
         }
+
+        private bool IsValid()
+        {
+            try
+            {
+                int i = Convert.ToInt32(TbQtde.Text);
+            }
+            catch (Exception)
+            {
+                LbErro.Text = "A quantidade deve ser informada";
+                return false;
+            }
+            
+            return true;
+            
+        }
+    
     }
 }
