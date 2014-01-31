@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.Text;
 using Context.DAO;
 using Model;
+using WebService.Models;
 
 namespace WebService.Services
 {
@@ -13,9 +14,11 @@ namespace WebService.Services
     // NOTE: In order to launch WCF Test Client for testing this service, please select WsPedidos.svc or WsPedidos.svc.cs at the Solution Explorer and start debugging.
     public class WsPedidos : IWsPedidos
     {
-        public Pedido[] GetAll()
+        PedidosController controller = new PedidosController();
+        
+        public PedidoDB[] GetAll()
         {
-            return ConnProvider.getContext().Pedido.ToArray();
+            return controller.getAll();
         }
     }
 }
