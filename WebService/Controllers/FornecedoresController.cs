@@ -22,6 +22,8 @@ namespace WebService.Controllers
             {
                 fornecedoresDb.Add(ToDataMember(f));
             }
+
+            return fornecedoresDb.ToArray();
         }
 
         public FornecedorDB ToDataMember(Fornecedor t)
