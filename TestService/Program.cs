@@ -10,8 +10,8 @@ namespace TestService
     {
         static void Main(string[] args)
         {
-            ServiceLoL.WsPedidosClient client = new ServiceLoL.WsPedidosClient();
-            Console.WriteLine(client.GetAll());
+            ServiceReference1.TesteClient client = new ServiceReference1.TesteClient();
+            Console.WriteLine(client.Print());
             Console.ReadKey();
         }
     }
