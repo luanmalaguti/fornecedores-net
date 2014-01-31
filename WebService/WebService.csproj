@@ -68,6 +68,11 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\FornecedoresController.cs" />
+    <Compile Include="Controllers\IController.cs" />
+    <Compile Include="Controllers\PedidosController.cs" />
+    <Compile Include="Models\FornecedorDB.cs" />
+    <Compile Include="Models\PedidoDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IWsPedidos.cs" />
     <Compile Include="Services\WsPedidos.svc.cs">
