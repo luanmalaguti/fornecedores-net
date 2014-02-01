@@ -45,6 +45,7 @@ namespace Desktop.Forms.Pedidos
             Tabela.Columns[2].HeaderText = "Tamanho";
             Tabela.Columns[3].HeaderText = "Unid. Medida";
             Tabela.Columns[4].HeaderText = "R$";
+            Tabela.Columns[5].HeaderText = "Qtde";
 
             UpdateTotal();
         }
@@ -57,7 +58,7 @@ namespace Desktop.Forms.Pedidos
             {      
                 foreach (var p in produtos)
                 {
-                    pedido.Total = pedido.Total + p.valor;
+                    pedido.Total = pedido.Total + (p.valor * p.quantidade);
                 }
             }
 

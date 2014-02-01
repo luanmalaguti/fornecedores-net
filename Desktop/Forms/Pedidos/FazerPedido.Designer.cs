@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.PanelBotoes = new System.Windows.Forms.Panel();
+            this.BtPedido = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.TbFornecedor = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,7 +43,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lbTotal = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.BtPedido = new System.Windows.Forms.Button();
             this.PanelBotoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Tabela)).BeginInit();
             this.SuspendLayout();
@@ -55,8 +55,19 @@
             this.PanelBotoes.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.PanelBotoes.Location = new System.Drawing.Point(1, 1);
             this.PanelBotoes.Name = "PanelBotoes";
-            this.PanelBotoes.Size = new System.Drawing.Size(537, 39);
+            this.PanelBotoes.Size = new System.Drawing.Size(603, 39);
             this.PanelBotoes.TabIndex = 0;
+            // 
+            // BtPedido
+            // 
+            this.BtPedido.ForeColor = System.Drawing.Color.Black;
+            this.BtPedido.Location = new System.Drawing.Point(15, 3);
+            this.BtPedido.Name = "BtPedido";
+            this.BtPedido.Size = new System.Drawing.Size(157, 32);
+            this.BtPedido.TabIndex = 0;
+            this.BtPedido.Text = "Confirmar Pedido";
+            this.BtPedido.UseVisualStyleBackColor = true;
+            this.BtPedido.Click += new System.EventHandler(this.BtPedido_Click);
             // 
             // label1
             // 
@@ -102,7 +113,7 @@
             this.TbDescricao.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TbDescricao.Location = new System.Drawing.Point(16, 131);
             this.TbDescricao.Name = "TbDescricao";
-            this.TbDescricao.Size = new System.Drawing.Size(502, 47);
+            this.TbDescricao.Size = new System.Drawing.Size(588, 47);
             this.TbDescricao.TabIndex = 5;
             this.TbDescricao.Text = "";
             // 
@@ -113,7 +124,7 @@
             this.Tabela.MultiSelect = false;
             this.Tabela.Name = "Tabela";
             this.Tabela.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Tabela.Size = new System.Drawing.Size(502, 189);
+            this.Tabela.Size = new System.Drawing.Size(588, 189);
             this.Tabela.TabIndex = 6;
             // 
             // label3
@@ -140,7 +151,7 @@
             // 
             this.BtAdicionar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BtAdicionar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtAdicionar.Location = new System.Drawing.Point(298, 184);
+            this.BtAdicionar.Location = new System.Drawing.Point(348, 181);
             this.BtAdicionar.Name = "BtAdicionar";
             this.BtAdicionar.Size = new System.Drawing.Size(107, 26);
             this.BtAdicionar.TabIndex = 9;
@@ -152,7 +163,7 @@
             // 
             this.BtRemover.BackColor = System.Drawing.Color.Red;
             this.BtRemover.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtRemover.Location = new System.Drawing.Point(411, 184);
+            this.BtRemover.Location = new System.Drawing.Point(461, 181);
             this.BtRemover.Name = "BtRemover";
             this.BtRemover.Size = new System.Drawing.Size(107, 26);
             this.BtRemover.TabIndex = 10;
@@ -189,23 +200,12 @@
             this.label6.Size = new System.Drawing.Size(0, 16);
             this.label6.TabIndex = 12;
             // 
-            // BtPedido
-            // 
-            this.BtPedido.ForeColor = System.Drawing.Color.Black;
-            this.BtPedido.Location = new System.Drawing.Point(15, 3);
-            this.BtPedido.Name = "BtPedido";
-            this.BtPedido.Size = new System.Drawing.Size(157, 32);
-            this.BtPedido.TabIndex = 0;
-            this.BtPedido.Text = "Confirmar Pedido";
-            this.BtPedido.UseVisualStyleBackColor = true;
-            this.BtPedido.Click += new System.EventHandler(this.BtPedido_Click);
-            // 
             // FazerPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(538, 440);
+            this.ClientSize = new System.Drawing.Size(610, 440);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lbTotal);
             this.Controls.Add(this.label5);
