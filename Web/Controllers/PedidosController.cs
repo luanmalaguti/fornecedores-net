@@ -84,9 +84,9 @@ namespace Web.Controllers
             
             foreach (var p in pedido.ItemsPedido)
             {
-                ItemPedido itemPedido = new ItemPedido();
-                itemPedido = p;
-                itemPedido.Produto = db.Produto.Find(p.ProdutoID);
+                ItemPedido itemPedido = p;
+                Produto produto = db.Produto.Find(p.ProdutoID);
+                itemPedido.Produto = produto;
                 Load.Add(itemPedido);
             }
             

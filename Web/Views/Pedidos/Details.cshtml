@@ -31,6 +31,11 @@
         </div>
     }
     
+    <div class="display-field">
+        @Html.Label("Valor Total: ")
+        <span class="label label-primary">R$ @Html.DisplayFor(model => model.Total)</span>
+    </div>
+    
     <h3><span class="label label-default">Produtos</span></h3>
     <table class="table">
         <tr>
