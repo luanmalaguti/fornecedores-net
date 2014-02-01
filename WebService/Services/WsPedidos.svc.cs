@@ -15,10 +15,11 @@ namespace WebService.Services
     public class WsPedidos : IWsPedidos
     {
         PedidosController controller = new PedidosController();
-        
+
         public PedidoDB[] GetAll()
         {
             return controller.getAll();
         }
     }
+
 }

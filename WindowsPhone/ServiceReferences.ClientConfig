@@ -1,0 +1,17 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_IWsPedidos" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://localhost:28715/Services/WsPedidos.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_IWsPedidos"
+                contract="WsPedidos.IWsPedidos" name="BasicHttpBinding_IWsPedidos" />
+        </client>
+    </system.serviceModel>
+</configuration>
