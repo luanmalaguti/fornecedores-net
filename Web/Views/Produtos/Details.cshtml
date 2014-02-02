@@ -31,7 +31,10 @@
     </div>
     
     <div class="display-label">
-         @Html.Label("Valor")
+        @Html.Label("Valor")
+    </div>
+     <div class="display-field">
+       <span class="label label-primary"> R$ @Html.DisplayFor(model => model.valor)</span>
     </div>
 </fieldset>
 <p>

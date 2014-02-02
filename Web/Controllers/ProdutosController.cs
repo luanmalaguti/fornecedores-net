@@ -40,7 +40,19 @@ namespace Web.Controllers
 
         public ActionResult Details(int id = 0)
         {
+            // Carrega o produto
             Produto produto = db.Produto.Find(id);
+            
+            LoadFornecedor();
+            // Encontra o valor do produto
+            foreach (var fp in fornecedorProdutos)
+            {
+                if (fp.ProdutoID == id)
+                {
+                    produto.valor = fp.ValorUnitario;
+                }
+            }
+            
             if (produto == null)
             {
                 return HttpNotFound();

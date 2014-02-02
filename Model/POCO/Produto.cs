@@ -18,7 +18,7 @@ namespace Model
         [Key]
         public int Id { get; set; }
         
-       [Required(ErrorMessage = "Informe a Descrição do Produto")]
+        [Required(ErrorMessage = "Informe a Descrição do Produto")]
         public string Descricao { get; set; }
 
         public int Tamanho { get; set; }
@@ -34,6 +34,8 @@ namespace Model
         public virtual ICollection<FornecedorProduto> FornecedorProduto { get; set; }
 
         public virtual ICollection<ItemPedido> ItemsPedido { get; set; }
+
+       
 
         
 
