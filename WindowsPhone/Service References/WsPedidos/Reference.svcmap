@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ed285e30-a943-4c8b-9705-ff68a651cf31" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:28715/Services/WsPedidos.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="WsPedidos.xsd" MetadataType="Schema" ID="658fac16-475f-4447-acad-9ae098078dc7" SourceId="1" SourceUrl="http://localhost:28715/Services/WsPedidos.svc?xsd=xsd2" />
+    <MetadataFile FileName="WsPedidos1.xsd" MetadataType="Schema" ID="e122c10b-25e8-4966-aa9a-aefd8b348b53" SourceId="1" SourceUrl="http://localhost:28715/Services/WsPedidos.svc?xsd=xsd1" />
+    <MetadataFile FileName="WsPedidos.wsdl" MetadataType="Wsdl" ID="02d00761-f5a1-4d81-b1b5-0f27d40ed6a6" SourceId="1" SourceUrl="http://localhost:28715/Services/WsPedidos.svc?wsdl" />
+    <MetadataFile FileName="WsPedidos.disco" MetadataType="Disco" ID="10d01a9a-7c9d-45d4-9d33-d354e0a60ed5" SourceId="1" SourceUrl="http://localhost:28715/Services/WsPedidos.svc?disco" />
+    <MetadataFile FileName="WsPedidos2.xsd" MetadataType="Schema" ID="e69e7ffd-0cfc-41e0-ba1b-6346a31cd794" SourceId="1" SourceUrl="http://localhost:28715/Services/WsPedidos.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

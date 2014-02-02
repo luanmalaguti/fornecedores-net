@@ -7,29 +7,37 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using Phone.Resources;
+using WindowsPhone.Resources;
 
-namespace Phone
+namespace WindowsPhone
 {
     public partial class MainPage : PhoneApplicationPage
     {
-
-     //   List<WSPhone.WsPedidosClient> pedidos = null;
-
+        WsPedidos.WsPedidosClient client = new WsPedidos.WsPedidosClient();
+        HashSet<String> pedidos = new HashSet<string>();
         
         // Constructor
         public MainPage()
         {
             InitializeComponent();
-       //     WSPhone.WsPedidosClient ws = new WSPhone.WsPedidosClient();
-         //   ws.GetAllAsync();
-    
             
+            client.GetAllCompleted += client_GetAllCompleted;
+            
+
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
         }
 
-    
+        void client_GetAllCompleted(object sender, WsPedidos.GetAllCompletedEventArgs e)
+        {
+            if (e.Result != null)
+            {
+                int i = e.Result.Count;
+                foreach(var n in e.Result){
+                    pedidos.Add(n.Id + " - "+n.Descricao);
+                }
+            }
+        }
 
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()
