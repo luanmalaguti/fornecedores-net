@@ -19,18 +19,10 @@ namespace Test
             db = ConnProvider.getContext();
         }
       
-        
         [Test]
-        public void save()
+        public void CreateDataBase()
         {
-            Usuario u = new Usuario();
-            u.Username = "lol";
-            u.Password = "lol";
-            
-            u = db.Usuario.Add(u);
-            db.SaveChanges();
-
-            Assert.NotNull(u.Id);
+            Assert.IsTrue(db.Database.Exists());
         }
     }
 }
