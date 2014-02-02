@@ -58,5 +58,10 @@ namespace Desktop.Controller
 
             return produtos;
         }
+
+        public List<Fornecedor> GetForncedorByCombo(int id)
+        {
+            return db.Fornecedor.Where(f => f.Id == id).ToList();
+        } 
     }
 }

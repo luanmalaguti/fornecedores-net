@@ -51,6 +51,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PanelPrincipal = new System.Windows.Forms.Panel();
+            this.CbFornecedores = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.Tabela = new System.Windows.Forms.DataGridView();
             this.Menu.SuspendLayout();
@@ -240,7 +241,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Desktop.Properties.Resources.enjoy;
-            this.pictureBox1.Location = new System.Drawing.Point(271, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(306, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(315, 95);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -250,12 +251,25 @@
             // PanelPrincipal
             // 
             this.PanelPrincipal.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.PanelPrincipal.Controls.Add(this.CbFornecedores);
             this.PanelPrincipal.Controls.Add(this.label2);
             this.PanelPrincipal.Controls.Add(this.Tabela);
             this.PanelPrincipal.Location = new System.Drawing.Point(0, 128);
             this.PanelPrincipal.Name = "PanelPrincipal";
             this.PanelPrincipal.Size = new System.Drawing.Size(833, 386);
             this.PanelPrincipal.TabIndex = 3;
+            // 
+            // CbFornecedores
+            // 
+            this.CbFornecedores.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.CbFornecedores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbFornecedores.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbFornecedores.FormattingEnabled = true;
+            this.CbFornecedores.Location = new System.Drawing.Point(513, 17);
+            this.CbFornecedores.Name = "CbFornecedores";
+            this.CbFornecedores.Size = new System.Drawing.Size(286, 24);
+            this.CbFornecedores.TabIndex = 2;
+            this.CbFornecedores.SelectedIndexChanged += new System.EventHandler(this.CbFornecedores_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -275,7 +289,7 @@
             this.Tabela.MultiSelect = false;
             this.Tabela.Name = "Tabela";
             this.Tabela.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Tabela.Size = new System.Drawing.Size(781, 332);
+            this.Tabela.Size = new System.Drawing.Size(773, 332);
             this.Tabela.TabIndex = 0;
             // 
             // Principal
@@ -328,5 +342,6 @@
         private System.Windows.Forms.ToolStripMenuItem pedidosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fornecedoresToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ComboBox CbFornecedores;
     }
 }
