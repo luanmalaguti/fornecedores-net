@@ -35,7 +35,7 @@ namespace WebService
             pedidoDb.Total = pedido.Total;
             pedidoDb.Status = pedido.Status.ToString();
             pedidoDb.Prazo = pedido.Prazo.ToString();
-            pedidoDb.Entrega = pedido.Entrega.ToString();
+            pedidoDb.Entrega = pedido.Entrega.Equals(pedido.Prazo) ? "N/C" : pedido.Entrega.ToString();
 
             return pedidoDb;
         }

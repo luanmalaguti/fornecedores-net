@@ -28,7 +28,14 @@ namespace WebService.Controllers
 
         public FornecedorDB ToDataMember(Fornecedor t)
         {
-            throw new NotImplementedException();
+            FornecedorDB fornecedorDb = new FornecedorDB();
+
+            fornecedorDb.RazaoSocial = t.RazaoSocial;
+            fornecedorDb.Cnpj = t.Cnpj ;
+            fornecedorDb.Telefone = t.Telefone;
+            fornecedorDb.Endereco = t.Endereco;
+
+            return fornecedorDb;
         }
     }
 }
