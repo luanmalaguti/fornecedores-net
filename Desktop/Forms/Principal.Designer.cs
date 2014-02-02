@@ -39,6 +39,9 @@
             this.teste2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PedidosNovo = new System.Windows.Forms.ToolStripMenuItem();
             this.PedidosBuscar = new System.Windows.Forms.ToolStripMenuItem();
+            this.relatórioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fornecedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Sair = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.PanelBotoes = new System.Windows.Forms.Panel();
@@ -46,11 +49,14 @@
             this.BtFornecedores = new System.Windows.Forms.Button();
             this.LbLogado = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PanelPrincipal = new System.Windows.Forms.Panel();
+            this.CbFornecedores = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.Tabela = new System.Windows.Forms.DataGridView();
             this.Menu.SuspendLayout();
             this.PanelBotoes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.PanelPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Tabela)).BeginInit();
             this.SuspendLayout();
@@ -62,10 +68,11 @@
             this.testeToolStripMenuItem,
             this.produtosToolStripMenuItem,
             this.teste2ToolStripMenuItem,
+            this.relatórioToolStripMenuItem,
             this.Sair});
             this.Menu.Location = new System.Drawing.Point(0, 0);
             this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(804, 24);
+            this.Menu.Size = new System.Drawing.Size(824, 24);
             this.Menu.TabIndex = 0;
             // 
             // testeToolStripMenuItem
@@ -126,15 +133,39 @@
             // PedidosNovo
             // 
             this.PedidosNovo.Name = "PedidosNovo";
-            this.PedidosNovo.Size = new System.Drawing.Size(120, 22);
+            this.PedidosNovo.Size = new System.Drawing.Size(137, 22);
             this.PedidosNovo.Text = "Novo";
             this.PedidosNovo.Click += new System.EventHandler(this.PedidosNovo_Click);
             // 
             // PedidosBuscar
             // 
             this.PedidosBuscar.Name = "PedidosBuscar";
-            this.PedidosBuscar.Size = new System.Drawing.Size(120, 22);
-            this.PedidosBuscar.Text = "Buscar";
+            this.PedidosBuscar.Size = new System.Drawing.Size(137, 22);
+            this.PedidosBuscar.Text = "Dar Baixa";
+            this.PedidosBuscar.Click += new System.EventHandler(this.PedidosBuscar_Click);
+            // 
+            // relatórioToolStripMenuItem
+            // 
+            this.relatórioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pedidosToolStripMenuItem,
+            this.fornecedoresToolStripMenuItem});
+            this.relatórioToolStripMenuItem.Name = "relatórioToolStripMenuItem";
+            this.relatórioToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
+            this.relatórioToolStripMenuItem.Text = "Relatório";
+            // 
+            // pedidosToolStripMenuItem
+            // 
+            this.pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
+            this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.pedidosToolStripMenuItem.Text = "Pedidos";
+            this.pedidosToolStripMenuItem.Click += new System.EventHandler(this.pedidosToolStripMenuItem_Click);
+            // 
+            // fornecedoresToolStripMenuItem
+            // 
+            this.fornecedoresToolStripMenuItem.Name = "fornecedoresToolStripMenuItem";
+            this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.fornecedoresToolStripMenuItem.Text = "Fornecedores";
+            this.fornecedoresToolStripMenuItem.Click += new System.EventHandler(this.fornecedoresToolStripMenuItem_Click);
             // 
             // Sair
             // 
@@ -156,16 +187,17 @@
             this.PanelBotoes.Controls.Add(this.BtFornecedores);
             this.PanelBotoes.Controls.Add(this.LbLogado);
             this.PanelBotoes.Controls.Add(this.label1);
+            this.PanelBotoes.Controls.Add(this.pictureBox1);
             this.PanelBotoes.Location = new System.Drawing.Point(0, 25);
             this.PanelBotoes.Name = "PanelBotoes";
-            this.PanelBotoes.Size = new System.Drawing.Size(805, 38);
+            this.PanelBotoes.Size = new System.Drawing.Size(833, 150);
             this.PanelBotoes.TabIndex = 2;
             // 
             // BtBaixa
             // 
             this.BtBaixa.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BtBaixa.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtBaixa.Location = new System.Drawing.Point(195, 4);
+            this.BtBaixa.Location = new System.Drawing.Point(195, 36);
             this.BtBaixa.Name = "BtBaixa";
             this.BtBaixa.Size = new System.Drawing.Size(134, 29);
             this.BtBaixa.TabIndex = 3;
@@ -178,7 +210,7 @@
             this.BtFornecedores.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BtFornecedores.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtFornecedores.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.BtFornecedores.Location = new System.Drawing.Point(12, 4);
+            this.BtFornecedores.Location = new System.Drawing.Point(12, 36);
             this.BtFornecedores.Name = "BtFornecedores";
             this.BtFornecedores.Size = new System.Drawing.Size(155, 29);
             this.BtFornecedores.TabIndex = 2;
@@ -206,22 +238,45 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Logado: ";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Desktop.Properties.Resources.enjoy;
+            this.pictureBox1.Location = new System.Drawing.Point(306, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(315, 95);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
             // PanelPrincipal
             // 
             this.PanelPrincipal.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.PanelPrincipal.Controls.Add(this.CbFornecedores);
             this.PanelPrincipal.Controls.Add(this.label2);
             this.PanelPrincipal.Controls.Add(this.Tabela);
-            this.PanelPrincipal.Location = new System.Drawing.Point(0, 64);
+            this.PanelPrincipal.Location = new System.Drawing.Point(0, 128);
             this.PanelPrincipal.Name = "PanelPrincipal";
-            this.PanelPrincipal.Size = new System.Drawing.Size(805, 296);
+            this.PanelPrincipal.Size = new System.Drawing.Size(833, 386);
             this.PanelPrincipal.TabIndex = 3;
+            // 
+            // CbFornecedores
+            // 
+            this.CbFornecedores.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.CbFornecedores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbFornecedores.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbFornecedores.FormattingEnabled = true;
+            this.CbFornecedores.Location = new System.Drawing.Point(513, 17);
+            this.CbFornecedores.Name = "CbFornecedores";
+            this.CbFornecedores.Size = new System.Drawing.Size(286, 24);
+            this.CbFornecedores.TabIndex = 2;
+            this.CbFornecedores.SelectedIndexChanged += new System.EventHandler(this.CbFornecedores_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(298, 18);
+            this.label2.Location = new System.Drawing.Point(21, 18);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(183, 23);
             this.label2.TabIndex = 1;
@@ -234,14 +289,14 @@
             this.Tabela.MultiSelect = false;
             this.Tabela.Name = "Tabela";
             this.Tabela.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Tabela.Size = new System.Drawing.Size(752, 224);
+            this.Tabela.Size = new System.Drawing.Size(773, 332);
             this.Tabela.TabIndex = 0;
             // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(804, 361);
+            this.ClientSize = new System.Drawing.Size(824, 512);
             this.Controls.Add(this.PanelPrincipal);
             this.Controls.Add(this.PanelBotoes);
             this.Controls.Add(this.Menu);
@@ -252,6 +307,7 @@
             this.Menu.PerformLayout();
             this.PanelBotoes.ResumeLayout(false);
             this.PanelBotoes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.PanelPrincipal.ResumeLayout(false);
             this.PanelPrincipal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Tabela)).EndInit();
@@ -282,5 +338,10 @@
         private System.Windows.Forms.DataGridView Tabela;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button BtBaixa;
+        private System.Windows.Forms.ToolStripMenuItem relatórioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pedidosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fornecedoresToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ComboBox CbFornecedores;
     }
 }

@@ -9,8 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Context.DAO;
 using Desktop.Controller;
+using Desktop.Forms.Model;
 using Desktop.Forms.Pedidos;
 using Desktop.Forms.Produtos;
+using Desktop.Forms.Reports;
 using Desktop.Forms.Template;
 using Desktop.Forms.User;
 using Model;
@@ -22,14 +24,22 @@ namespace Desktop.Forms
     public partial class Principal : BasicForm
     {
         private Usuario usuario { get; set; }
+        FornecedorController fornecedorController = new FornecedorController();
+
+        List<TableModel> tableModel = new List<TableModel>();
         
         public Principal(Usuario usuario)
         {
             this.usuario = usuario;
             InitializeComponent();
             LbLogado.Text = usuario.Username;
+            InitComboBox();
+            UpdateTabela(null);
+        }
 
-            UpdateTabela();
+        private void InitComboBox()
+        {
+            CbFornecedores.DataSource = fornecedorController.FindAll();
         }
 
         private void UsuariosNovo_Click(object sender, EventArgs e)
@@ -67,33 +77,55 @@ namespace Desktop.Forms
             new MeusFornecedores(this).Show();
         }
 
-        public void UpdateTabela()
+        public void UpdateTabela(Fornecedor fornecedor)
         {
-           var pedidos = from p in ConnProvider.getContext().Pedido
-                              
-                               select new
-                               {
-                                   p.Id,
-                                   p.Descricao,
-                                   p.Prazo,
-                                   p.Entrega,
-                                   p.Status,
-                                   p.Total,
-                               };
+            List<TableModel> tableModel = new List<TableModel>();
 
-            Tabela.DataSource = pedidos.ToList();
+            List<Fornecedor> fornecedores = fornecedor != null ? fornecedorController.GetForncedorByCombo(fornecedor.Id) : fornecedorController.FindAll().ToList();
 
-            Tabela.Columns[0].HeaderText = "Código";
-            Tabela.Columns[1].HeaderText = "Descrição";
-            Tabela.Columns[2].HeaderText = "Prazo";
-            Tabela.Columns[3].HeaderText = "Entrega";
-            Tabela.Columns[4].HeaderText = "Status";
-            Tabela.Columns[5].HeaderText = "Total R$";
+            foreach (var f in fornecedores)
+            {
+                foreach (var p in f.Pedidos)
+                {
+                    tableModel.Add(new TableModel(f,p));
+                }
+            }
+
+            Tabela.DataSource = tableModel.ToList();
+
+            Tabela.Columns[0].HeaderText = "Fornecedor";
+            Tabela.Columns[1].HeaderText = "Cnpj";
+            Tabela.Columns[2].HeaderText = "Pedido";
+            Tabela.Columns[3].HeaderText = "Status";
+            Tabela.Columns[4].HeaderText = "Total R$";
+            Tabela.Columns[5].HeaderText = "Prazo";
+            Tabela.Columns[6].HeaderText = "Entrega";
         }
 
         private void BtBaixa_Click(object sender, EventArgs e)
         {
             new BaixaPedido().Show();
+        }
+
+        private void PedidosBuscar_Click(object sender, EventArgs e)
+        {
+            new BaixaPedido().Show();
+        }
+
+        private void pedidosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new PedidosReportForm().Show();
+        }
+
+        private void fornecedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FornecedoresReportForm().Show();
+        }
+
+        private void CbFornecedores_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Fornecedor f = CbFornecedores.SelectedItem as Fornecedor;
+            UpdateTabela(f);
         }
     }
 }

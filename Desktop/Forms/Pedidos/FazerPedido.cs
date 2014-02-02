@@ -130,7 +130,7 @@ namespace Desktop.Forms.Pedidos
                 fornecedorController.Save(fornecedor);
 
                 //atualiza a tabela da tela principal
-                principal.UpdateTabela();
+                principal.UpdateTabela(null);
 
                 ShowSuccess("Pedido ao fornecedor "+fornecedor.RazaoSocial+" efetuado com sucesso");
             }

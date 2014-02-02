@@ -34,7 +34,10 @@ namespace Model
 
         public virtual ICollection<FornecedorProduto> FornecedorProduto { get; set; }
 
-        //public virtual Usuario usuario { get; set; }
+        public override string ToString()
+        {
+            return this.RazaoSocial + " - " + this.Cnpj;
+        }
 
     }
 }

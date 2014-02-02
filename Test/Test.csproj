@@ -60,7 +60,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="General.cs" />
+    <Compile Include="Tests\General.cs" />
+    <Compile Include="Tests\UsuarioTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

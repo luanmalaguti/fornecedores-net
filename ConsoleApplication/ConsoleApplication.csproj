@@ -50,6 +50,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\WsFornecedores\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -66,12 +71,26 @@
     <None Include="Service References\ConsoleWebService\WsPedidos2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\WsFornecedores\ConsoleApplication.WsFornecedores.FornecedorDB.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WsFornecedores\IWsFornecedores.wsdl" />
+    <None Include="Service References\WsFornecedores\IWsFornecedores.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WsFornecedores\IWsFornecedores1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WsFornecedores\IWsFornecedores2.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ConsoleWebService\" />
+    <WCFMetadataStorage Include="Service References\WsFornecedores\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ConsoleWebService\WsPedidos.disco" />
@@ -84,6 +103,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\ConsoleWebService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WsFornecedores\IWsFornecedores.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WsFornecedores\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WsFornecedores\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WsFornecedores\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

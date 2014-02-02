@@ -70,6 +70,7 @@ namespace Desktop.Forms.Pedidos
         private void BtRecebido_Click(object sender, EventArgs e)
         {
             this.selecionado.Status = StatusPedido.ENTREGUE;
+            this.selecionado.Entrega = DateTime.Now;
             controller.Save(selecionado);
             Buscar("");
         }
